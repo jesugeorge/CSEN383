@@ -1,0 +1,950 @@
+BASE SEED: 1769491036
+
+Run #1: FCFS
+Timeline: _UUUUUUUUUUSSSSSSSSWWWIIIILLLLTTTTJJJJJJJJJFFFFRRRRRRROOOOOOOOQQQQBBBBBMMMMMMMMNNNNHHHHHHHHHGGGGGGGG
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+U     1         10        4         10        0         0        
+S     2         8         1         17        9         9        
+W     2         3         3         20        17        17       
+I     3         4         2         23        19        19       
+L     3         4         2         27        23        23       
+T     4         4         4         30        26        26       
+J     5         9         3         38        29        29       
+F     8         4         4         39        35        35       
+R     9         7         1         45        38        38       
+O     20        8         1         42        34        34       
+Q     21        4         4         45        41        41       
+B     23        5         2         48        43        43       
+M     24        8         1         55        47        47       
+N     24        4         4         59        55        55       
+H     27        9         3         65        56        56       
+G     32        8         1         68        60        60       
+V     35        6         4         [DROPPED]
+C     36        1         4         [DROPPED]
+P     60        4         2         [DROPPED]
+X     64        6         2         [DROPPED]
+D     70        9         3         [DROPPED]
+K     84        10        1         [DROPPED]
+A     89        2         4         [DROPPED]
+E     91        8         2         [DROPPED]
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 39.44 | Avg Wait: 33.25 | Avg Resp: 33.25 | Throughput: 0.16
+
+Run #1: SJF
+Timeline: _UUUUUUUUUUWWWIIIILLLLTTTTFFFFQQQQNNNNCBBBBBVVVVVVRRRRRRRSSSSSSSSPPPPXXXXXXOOOOOOOOMMMMMMMMAAGGGGGGG
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+U     1         10        4         10        0         0        
+S     2         8         1         63        55        55       
+W     2         3         3         12        9         9        
+I     3         4         2         15        11        11       
+L     3         4         2         19        15        15       
+T     4         4         4         22        18        18       
+J     5         9         3         [DROPPED]
+F     8         4         4         22        18        18       
+R     9         7         1         48        41        41       
+O     20        8         1         63        55        55       
+Q     21        4         4         13        9         9        
+B     23        5         2         21        16        16       
+M     24        8         1         67        59        59       
+N     24        4         4         14        10        10       
+H     27        9         3         [DROPPED]
+G     32        8         1         69        61        61       
+V     35        6         4         15        9         9        
+C     36        1         4         3         2         2        
+P     60        4         2         9         5         5        
+X     64        6         2         11        5         5        
+D     70        9         3         [DROPPED]
+K     84        10        1         [DROPPED]
+A     89        2         4         4         2         2        
+E     91        8         2         [DROPPED]
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 26.32 | Avg Wait: 21.05 | Avg Resp: 21.05 | Throughput: 0.19
+
+Run #1: SRT
+Timeline: _UWWWIIIILLLLTTTTFFFFQQQQNNNNBBBBBRRCRRRRRVVVVVVSSSSSSSSOOOOOOOOPPPPXXXXXXMMMMMMMMGGGGGGGGAAEEEEEEEE
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+U     1         10        4         108       98        0        
+S     2         8         1         54        46        46       
+W     2         3         3         3         0         0        
+I     3         4         2         6         2         2        
+L     3         4         2         10        6         6        
+T     4         4         4         13        9         9        
+J     5         9         3         [DROPPED]
+F     8         4         4         13        9         9        
+R     9         7         1         33        26        25       
+O     20        8         1         44        36        36       
+Q     21        4         4         4         0         0        
+B     23        5         2         11        6         6        
+M     24        8         1         58        50        50       
+N     24        4         4         5         1         1        
+H     27        9         3         [DROPPED]
+G     32        8         1         58        50        50       
+V     35        6         4         13        7         7        
+C     36        1         4         1         0         0        
+P     60        4         2         8         4         4        
+X     64        6         2         10        4         4        
+D     70        9         3         [DROPPED]
+K     84        10        1         [DROPPED]
+A     89        2         4         3         1         1        
+E     91        8         2         9         1         1        
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 23.20 | Avg Wait: 17.80 | Avg Resp: 12.85 | Throughput: 0.18
+
+Run #1: RR
+Timeline: _USWUILSTWJUILFSRTWJUILFSRTOJQUIBLMNFSRHTOJQUGBVMCNFSRHOJQUGBVMNSRHOJQUPGBVMXNSRHOJDUPGBVMXRHOJKDUPG
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+U     1         10        4         97        87        0        
+S     2         8         1         77        69        0        
+W     2         3         3         17        14        1        
+I     3         4         2         29        25        2        
+L     3         4         2         31        27        3        
+T     4         4         4         37        33        4        
+J     5         9         3         101       92        5        
+F     8         4         4         44        40        6        
+R     9         7         1         83        76        7        
+O     20        8         1         95        87        7        
+Q     21        4         4         49        45        8        
+B     23        5         2         65        60        9        
+M     24        8         1         95        87        10       
+N     24        4         4         54        50        11       
+H     27        9         3         99        90        12       
+G     32        8         1         92        84        13       
+V     35        6         4         76        70        12       
+C     36        1         4         14        13        13       
+P     60        4         2         49        45        11       
+X     64        6         2         61        55        12       
+D     70        9         3         64        55        13       
+K     84        10        1         52        42        11       
+A     89        2         4         [DROPPED]
+E     91        8         2         [DROPPED]
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 62.77 | Avg Wait: 56.64 | Avg Resp: 7.73 | Throughput: 0.16
+
+Run #1: HPF-NP
+Timeline: _UUUUUUUUUUSSSSSSSSWWWIIIILLLLTTTTJJJJJJJJJFFFFRRRRRRROOOOOOOOQQQQBBBBBMMMMMMMMNNNNHHHHHHHHHGGGGGGGG
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+U     1         10        4         10        0         0        
+S     2         8         1         17        9         9        
+W     2         3         3         20        17        17       
+I     3         4         2         23        19        19       
+L     3         4         2         27        23        23       
+T     4         4         4         30        26        26       
+J     5         9         3         38        29        29       
+F     8         4         4         39        35        35       
+R     9         7         1         45        38        38       
+O     20        8         1         42        34        34       
+Q     21        4         4         45        41        41       
+B     23        5         2         48        43        43       
+M     24        8         1         55        47        47       
+N     24        4         4         59        55        55       
+H     27        9         3         65        56        56       
+G     32        8         1         68        60        60       
+V     35        6         4         [DROPPED]
+C     36        1         4         [DROPPED]
+P     60        4         2         [DROPPED]
+X     64        6         2         [DROPPED]
+D     70        9         3         [DROPPED]
+K     84        10        1         [DROPPED]
+A     89        2         4         [DROPPED]
+E     91        8         2         [DROPPED]
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 39.44 | Avg Wait: 33.25 | Avg Resp: 33.25 | Throughput: 0.16
+HPF QUEUE STATS (Based on Initial Priority):
+  [P1] Count: 5 | Avg TAT: 45.40 | Avg Wait: 37.60 | Throughput: 0.05
+  [P2] Count: 3 | Avg TAT: 32.67 | Avg Wait: 28.33 | Throughput: 0.03
+  [P3] Count: 3 | Avg TAT: 41.00 | Avg Wait: 34.00 | Throughput: 0.03
+  [P4] Count: 5 | Avg TAT: 36.60 | Avg Wait: 31.40 | Throughput: 0.05
+
+Run #1: HPF-Pre
+Timeline: _USSSSSSSILSRILWRILJWURILTJOWURFMTJOBURFGMTJOQBHURNFGMTJOQBHURVNCFGMJOQBHUVNPGMJXOQBHUVNPGMJDXOKHUVP
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+U     1         10        4         108       98        0        
+S     2         8         1         10        2         0        
+W     2         3         3         27        24        13       
+I     3         4         2         21        17        6        
+L     3         4         2         22        18        7        
+T     4         4         4         51        47        21       
+J     5         9         3         98        89        14       
+F     8         4         4         58        54        23       
+R     9         7         1         53        46        3        
+O     20        8         1         86        78        7        
+Q     21        4         4         62        58        24       
+B     23        5         2         61        56        13       
+M     24        8         1         89        81        8        
+N     24        4         4         64        60        26       
+H     27        9         3         100       91        20       
+G     32        8         1         87        79        8        
+V     35        6         4         83        77        27       
+C     36        1         4         29        28        28       
+P     60        4         2         51        47        16       
+X     64        6         2         61        55        16       
+D     70        9         3         64        55        22       
+K     84        10        1         52        42        11       
+A     89        2         4         [DROPPED]
+E     91        8         2         [DROPPED]
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 60.77 | Avg Wait: 54.64 | Avg Resp: 14.23 | Throughput: 0.16
+HPF QUEUE STATS (Based on Initial Priority):
+  [P1] Count: 6 | Avg TAT: 62.83 | Avg Wait: 54.67 | Throughput: 0.04
+  [P2] Count: 5 | Avg TAT: 43.20 | Avg Wait: 38.60 | Throughput: 0.04
+  [P3] Count: 4 | Avg TAT: 72.25 | Avg Wait: 64.75 | Throughput: 0.03
+  [P4] Count: 7 | Avg TAT: 65.00 | Avg Wait: 60.29 | Throughput: 0.05
+
+Run #2: FCFS
+Timeline: _GGGGMMMMMMTTTTTTTLLLWWHHHHHHHHVVVVVVVVVVCCCCCCCKBBFFFUUUUUUUUSSSSRRRROIIIIIIIIIJJJJJJJJJXDDDDDDDDDQ
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+G     1         4         2         4         0         0        
+M     3         6         4         8         2         2        
+T     8         7         3         10        3         3        
+L     9         3         4         12        9         9        
+W     11        2         2         12        10        10       
+H     13        8         4         18        10        10       
+V     15        10        1         26        16        16       
+C     19        7         4         29        22        22       
+K     25        1         1         24        23        23       
+B     32        2         3         19        17        17       
+F     35        3         4         19        16        16       
+U     35        8         2         27        19        19       
+S     41        4         3         25        21        21       
+R     44        4         2         26        22        22       
+O     45        1         3         26        25        25       
+I     52        9         3         28        19        19       
+J     53        9         2         36        27        27       
+X     55        1         1         35        34        34       
+D     66        9         2         33        24        24       
+Q     75        4         3         28        24        24       
+A     79        9         4         [DROPPED]
+E     89        8         1         [DROPPED]
+Y     92        8         2         [DROPPED]
+N     98        4         3         [DROPPED]
+P     99        2         3         [DROPPED]
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 22.25 | Avg Wait: 17.15 | Avg Resp: 17.15 | Throughput: 0.19
+
+Run #2: SJF
+Timeline: _GGGGMMMMMMWWLLLTTTTTTTCCCCCCCKHHHHHHHHBBFFFSSSSORRRRUUUUUUUUXIIIIIIIIIJJJJJJJJJQQQQDDDDDDDDDEEEEEEE
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+G     1         4         2         4         0         0        
+M     3         6         4         8         2         2        
+T     8         7         3         15        8         8        
+L     9         3         4         7         4         4        
+W     11        2         2         2         0         0        
+H     13        8         4         26        18        18       
+V     15        10        1         [DROPPED]
+C     19        7         4         11        4         4        
+K     25        1         1         6         5         5        
+B     32        2         3         9         7         7        
+F     35        3         4         9         6         6        
+U     35        8         2         26        18        18       
+S     41        4         3         7         3         3        
+R     44        4         2         9         5         5        
+O     45        1         3         4         3         3        
+I     52        9         3         19        10        10       
+J     53        9         2         27        18        18       
+X     55        1         1         7         6         6        
+D     66        9         2         27        18        18       
+Q     75        4         3         9         5         5        
+A     79        9         4         [DROPPED]
+E     89        8         1         12        4         4        
+Y     92        8         2         [DROPPED]
+N     98        4         3         [DROPPED]
+P     99        2         3         [DROPPED]
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 12.20 | Avg Wait: 7.20 | Avg Resp: 7.20 | Throughput: 0.20
+
+Run #2: SRT
+Timeline: _GGGGMMMMMMWWLLLTTTTTTTCCKCCCCCHBBHFFFHHHHHHSOSSSRRRRUUXUUUUUUIIIIIIIIIJJJJQQQQJJJJJDDDDDDDDDEEEEEEE
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+G     1         4         2         4         0         0        
+M     3         6         4         8         2         2        
+T     8         7         3         15        8         8        
+L     9         3         4         7         4         4        
+W     11        2         2         2         0         0        
+H     13        8         4         31        23        18       
+V     15        10        1         [DROPPED]
+C     19        7         4         12        5         4        
+K     25        1         1         1         0         0        
+B     32        2         3         2         0         0        
+F     35        3         4         3         0         0        
+U     35        8         2         27        19        18       
+S     41        4         3         8         4         3        
+R     44        4         2         9         5         5        
+O     45        1         3         1         0         0        
+I     52        9         3         19        10        10       
+J     53        9         2         31        22        18       
+X     55        1         1         1         0         0        
+D     66        9         2         27        18        18       
+Q     75        4         3         4         0         0        
+A     79        9         4         [DROPPED]
+E     89        8         1         12        4         4        
+Y     92        8         2         [DROPPED]
+N     98        4         3         [DROPPED]
+P     99        2         3         [DROPPED]
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 11.20 | Avg Wait: 6.20 | Avg Resp: 5.60 | Throughput: 0.20
+
+Run #2: RR
+Timeline: _GGMGMGMTMLTMWLTHMWVLTHCVTHCKVTHCVTBHCVFUBHCVFSUHRCOVFSUHRCIJVXSURIJVSUDRIJVUDIQJUDAIQJUDAIQJEDAIYQJ
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+G     1         4         2         6         2         0        
+M     3         6         4         15        9         0        
+T     8         7         3         27        20        0        
+L     9         3         4         12        9         1        
+W     11        2         2         8         6         2        
+H     13        8         4         44        36        3        
+V     15        10        1         61        51        4        
+C     19        7         4         40        33        4        
+K     25        1         1         4         3         3        
+B     32        2         3         10        8         3        
+F     35        3         4         19        16        4        
+U     35        8         2         53        45        5        
+S     41        4         3         29        25        5        
+R     44        4         2         29        25        5        
+O     45        1         3         7         6         6        
+I     52        9         3         58        49        7        
+J     53        9         2         59        50        7        
+X     55        1         1         8         7         7        
+D     66        9         2         52        43        5        
+Q     75        4         3         24        20        4        
+A     79        9         4         46        37        4        
+E     89        8         1         38        30        4        
+Y     92        8         2         36        28        5        
+N     98        4         3         [DROPPED]
+P     99        2         3         [DROPPED]
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 29.78 | Avg Wait: 24.26 | Avg Resp: 3.83 | Throughput: 0.18
+
+Run #2: HPF-NP
+Timeline: _GGGGMMMMMMWWTTTTTTTVVVVVVVVVVLLLHHHHHHHHCCCCCCCKBBFFFUUUUUUUUSSSSRRRROIIIIIIIIIJJJJJJJJJXDDDDDDDDDQ
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+G     1         4         2         4         0         0        
+M     3         6         4         8         2         2        
+T     8         7         3         12        5         5        
+L     9         3         4         24        21        21       
+W     11        2         2         2         0         0        
+H     13        8         4         28        20        20       
+V     15        10        1         15        5         5        
+C     19        7         4         29        22        22       
+K     25        1         1         24        23        23       
+B     32        2         3         19        17        17       
+F     35        3         4         19        16        16       
+U     35        8         2         27        19        19       
+S     41        4         3         25        21        21       
+R     44        4         2         26        22        22       
+O     45        1         3         26        25        25       
+I     52        9         3         28        19        19       
+J     53        9         2         36        27        27       
+X     55        1         1         35        34        34       
+D     66        9         2         33        24        24       
+Q     75        4         3         28        24        24       
+A     79        9         4         [DROPPED]
+E     89        8         1         [DROPPED]
+Y     92        8         2         [DROPPED]
+N     98        4         3         [DROPPED]
+P     99        2         3         [DROPPED]
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 22.40 | Avg Wait: 17.30 | Avg Resp: 17.30 | Throughput: 0.19
+HPF QUEUE STATS (Based on Initial Priority):
+  [P1] Count: 3 | Avg TAT: 24.67 | Avg Wait: 20.67 | Throughput: 0.03
+  [P2] Count: 6 | Avg TAT: 21.33 | Avg Wait: 15.33 | Throughput: 0.06
+  [P3] Count: 6 | Avg TAT: 23.00 | Avg Wait: 18.50 | Throughput: 0.06
+  [P4] Count: 5 | Avg TAT: 21.60 | Avg Wait: 16.20 | Throughput: 0.05
+
+Run #2: HPF-Pre
+Timeline: _GGGGMMMMTMWWTMVVVVTVTVTVTLVKTLVHLVHCHCHCHUCHBUCHBUCHRFUSCRFOXUSJRFIUSJRIUSJDIUJDIJDIJDIQJDIQEJDIQEA
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+G     1         4         2         4         0         0        
+M     3         6         4         12        6         2        
+T     8         7         3         22        15        1        
+L     9         3         4         25        22        17       
+W     11        2         2         2         0         0        
+H     13        8         4         40        32        19       
+V     15        10        1         20        10        0        
+C     19        7         4         39        32        17       
+K     25        1         1         4         3         3        
+B     32        2         3         18        16        13       
+F     35        3         4         32        29        19       
+U     35        8         2         44        36        7        
+S     41        4         3         34        30        15       
+R     44        4         2         28        24        9        
+O     45        1         3         16        15        15       
+I     52        9         3         51        42        15       
+J     53        9         2         48        39        11       
+X     55        1         1         7         6         6        
+D     66        9         2         44        35        10       
+Q     75        4         3         29        25        13       
+A     79        9         4         41        32        20       
+E     89        8         1         28        20        4        
+Y     92        8         2         [DROPPED]
+N     98        4         3         [DROPPED]
+P     99        2         3         [DROPPED]
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 26.73 | Avg Wait: 21.32 | Avg Resp: 9.82 | Throughput: 0.18
+HPF QUEUE STATS (Based on Initial Priority):
+  [P1] Count: 4 | Avg TAT: 14.75 | Avg Wait: 9.75 | Throughput: 0.03
+  [P2] Count: 6 | Avg TAT: 28.33 | Avg Wait: 22.33 | Throughput: 0.05
+  [P3] Count: 6 | Avg TAT: 28.33 | Avg Wait: 23.83 | Throughput: 0.05
+  [P4] Count: 6 | Avg TAT: 31.50 | Avg Wait: 25.50 | Throughput: 0.05
+
+Run #3: FCFS
+Timeline: G__IIIIICOOOOOOSS_PPVVVVVVVVLLLLLLLLLLQQQQQQRRRRRRRRRRUUUUUUHHHHHHNJMMMMMMMMMMAAATTTTTTTKBBBBBEEEEEE
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+G     0         1         2         1         0         0        
+I     3         5         1         5         0         0        
+C     5         1         1         4         3         3        
+O     9         6         1         6         0         0        
+S     10        2         1         7         5         5        
+P     18        2         3         2         0         0        
+V     19        8         2         9         1         1        
+L     26        10        3         12        2         2        
+Q     27        6         4         17        11        11       
+R     42        10        3         12        2         2        
+U     45        6         3         15        9         9        
+H     46        6         3         20        14        14       
+N     46        1         1         21        20        20       
+J     50        1         4         18        17        17       
+M     65        10        2         13        3         3        
+A     69        3         1         12        9         9        
+T     69        7         1         19        12        12       
+K     82        1         2         7         6         6        
+B     83        5         3         11        6         6        
+E     84        9         2         19        10        10       
+D     88        8         2         [DROPPED]
+F     91        5         3         [DROPPED]
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 11.50 | Avg Wait: 6.50 | Avg Resp: 6.50 | Throughput: 0.19
+
+Run #3: SJF
+Timeline: G__IIIIICOOOOOOSS_PPVVVVVVVVQQQQQQLLLLLLLLLLRRRRRRRRRRNJUUUUUUHHHHHHMMMMMMMMMMAAATTTTTTTKBBBBBFFFFFD
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+G     0         1         2         1         0         0        
+I     3         5         1         5         0         0        
+C     5         1         1         4         3         3        
+O     9         6         1         6         0         0        
+S     10        2         1         7         5         5        
+P     18        2         3         2         0         0        
+V     19        8         2         9         1         1        
+L     26        10        3         18        8         8        
+Q     27        6         4         7         1         1        
+R     42        10        3         12        2         2        
+U     45        6         3         17        11        11       
+H     46        6         3         22        16        16       
+N     46        1         1         9         8         8        
+J     50        1         4         6         5         5        
+M     65        10        2         13        3         3        
+A     69        3         1         12        9         9        
+T     69        7         1         19        12        12       
+K     82        1         2         7         6         6        
+B     83        5         3         11        6         6        
+E     84        9         2         [DROPPED]
+D     88        8         2         19        11        11       
+F     91        5         3         8         3         3        
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 10.19 | Avg Wait: 5.24 | Avg Resp: 5.24 | Throughput: 0.20
+
+Run #3: SRT
+Timeline: G__IICIIIOSSOOOOO_PPVVVVVVVVQQQQQQLLLLLLLLLLRUNUUUJUUHHHHHHRRRRRRRRRMAAATTTTTTTMMMKBBBBBMMMMMMFFFFFD
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+G     0         1         2         1         0         0        
+I     3         5         1         6         1         0        
+C     5         1         1         1         0         0        
+O     9         6         1         8         2         0        
+S     10        2         1         2         0         0        
+P     18        2         3         2         0         0        
+V     19        8         2         9         1         1        
+L     26        10        3         18        8         8        
+Q     27        6         4         7         1         1        
+R     42        10        3         26        16        2        
+U     45        6         3         8         2         0        
+H     46        6         3         13        7         7        
+N     46        1         1         1         0         0        
+J     50        1         4         1         0         0        
+M     65        10        2         29        19        3        
+A     69        3         1         3         0         0        
+T     69        7         1         10        3         3        
+K     82        1         2         1         0         0        
+B     83        5         3         5         0         0        
+E     84        9         2         [DROPPED]
+D     88        8         2         19        11        11       
+F     91        5         3         8         3         3        
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 8.48 | Avg Wait: 3.52 | Avg Resp: 1.86 | Throughput: 0.20
+
+Run #3: RR
+Timeline: G__IICIIIOSOSOOOO_PVPVVVVVLVQLVQLQLQLQLQLLRLRLURHNURHJURHURHURHURHMRMRATMATMATMTMTMKTBMETBMDEBFMDEBF
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+G     0         1         2         1         0         0        
+I     3         5         1         6         1         0        
+C     5         1         1         1         0         0        
+O     9         6         1         8         2         0        
+S     10        2         1         3         1         0        
+P     18        2         3         3         1         0        
+V     19        8         2         12        4         0        
+L     26        10        3         20        10        0        
+Q     27        6         4         13        7         1        
+R     42        10        3         28        18        0        
+U     45        6         3         19        13        1        
+H     46        6         3         20        14        2        
+N     46        1         1         4         3         3        
+J     50        1         4         4         3         3        
+M     65        10        2         31        21        1        
+A     69        3         1         8         5         1        
+T     69        7         1         20        13        2        
+K     82        1         2         2         1         1        
+B     83        5         3         20        15        2        
+E     84        9         2         32        23        3        
+D     88        8         2         27        19        3        
+F     91        5         3         19        14        3        
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 13.68 | Avg Wait: 8.55 | Avg Resp: 1.18 | Throughput: 0.19
+
+Run #3: HPF-NP
+Timeline: G__IIIIICOOOOOOSS_PPVVVVVVVVLLLLLLLLLLQQQQQQRRRRRRRRRRUUUUUUHHHHHHNJMMMMMMMMMMAAATTTTTTTKEEEEEEEEEBB
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+G     0         1         2         1         0         0        
+I     3         5         1         5         0         0        
+C     5         1         1         4         3         3        
+O     9         6         1         6         0         0        
+S     10        2         1         7         5         5        
+P     18        2         3         2         0         0        
+V     19        8         2         9         1         1        
+L     26        10        3         12        2         2        
+Q     27        6         4         17        11        11       
+R     42        10        3         12        2         2        
+U     45        6         3         15        9         9        
+H     46        6         3         20        14        14       
+N     46        1         1         21        20        20       
+J     50        1         4         18        17        17       
+M     65        10        2         13        3         3        
+A     69        3         1         12        9         9        
+T     69        7         1         19        12        12       
+K     82        1         2         7         6         6        
+B     83        5         3         20        15        15       
+E     84        9         2         14        5         5        
+D     88        8         2         [DROPPED]
+F     91        5         3         [DROPPED]
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 11.70 | Avg Wait: 6.70 | Avg Resp: 6.70 | Throughput: 0.19
+HPF QUEUE STATS (Based on Initial Priority):
+  [P1] Count: 7 | Avg TAT: 10.57 | Avg Wait: 7.00 | Throughput: 0.07
+  [P2] Count: 5 | Avg TAT: 8.80 | Avg Wait: 3.00 | Throughput: 0.05
+  [P3] Count: 6 | Avg TAT: 13.50 | Avg Wait: 7.00 | Throughput: 0.06
+  [P4] Count: 2 | Avg TAT: 17.50 | Avg Wait: 14.00 | Throughput: 0.02
+
+Run #3: HPF-Pre
+Timeline: G__IIICIIOOSOSOOO_PVVVVVVVVPLLLLLLLLLLQQQQQQRRNRRRRURRRRUHUHUHUHUHJHMATAMTAMTMTMTMTMTMMMKEEEEEBDEBDE
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+G     0         1         2         1         0         0        
+I     3         5         1         6         1         0        
+C     5         1         1         2         1         1        
+O     9         6         1         8         2         0        
+S     10        2         1         4         2         1        
+P     18        2         3         10        8         0        
+V     19        8         2         8         0         0        
+L     26        10        3         12        2         2        
+Q     27        6         4         17        11        11       
+R     42        10        3         14        4         2        
+U     45        6         3         20        14        6        
+H     46        6         3         22        16        11       
+N     46        1         1         1         0         0        
+J     50        1         4         17        16        16       
+M     65        10        2         23        13        3        
+A     69        3         1         6         3         0        
+T     69        7         1         16        9         1        
+K     82        1         2         7         6         6        
+B     83        5         3         24        19        11       
+E     84        9         2         22        13        5        
+D     88        8         2         23        15        7        
+F     91        5         3         [DROPPED]
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 12.52 | Avg Wait: 7.38 | Avg Resp: 3.95 | Throughput: 0.19
+HPF QUEUE STATS (Based on Initial Priority):
+  [P1] Count: 7 | Avg TAT: 6.14 | Avg Wait: 2.57 | Throughput: 0.06
+  [P2] Count: 6 | Avg TAT: 14.00 | Avg Wait: 7.83 | Throughput: 0.05
+  [P3] Count: 6 | Avg TAT: 17.00 | Avg Wait: 10.50 | Throughput: 0.05
+  [P4] Count: 2 | Avg TAT: 17.00 | Avg Wait: 13.50 | Throughput: 0.02
+
+Run #4: FCFS
+Timeline: DDDDDDDDDFGGGGGGGRRRRNNNNNNNNNNMMMMAAAAAAAAHHHHQQQQQQQQBBBBBBJJJIIIIIIEEEEEEEEEELPPPPPPPPPSSSSSSOOOO
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+D     0         9         2         9         0         0        
+F     3         1         1         7         6         6        
+G     6         7         4         11        4         4        
+R     8         4         3         13        9         9        
+N     11        10        3         20        10        10       
+M     17        4         1         18        14        14       
+A     27        8         4         16        8         8        
+H     32        4         4         15        11        11       
+Q     39        8         2         16        8         8        
+B     42        6         3         19        13        13       
+J     42        3         4         22        19        19       
+I     44        6         3         26        20        20       
+E     60        10        1         20        10        10       
+L     61        1         4         20        19        19       
+P     67        9         4         23        14        14       
+S     76        6         3         20        14        14       
+O     77        4         3         23        19        19       
+K     89        9         2         [DROPPED]
+C     90        7         2         [DROPPED]
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 17.53 | Avg Wait: 11.65 | Avg Resp: 11.65 | Throughput: 0.17
+
+Run #4: SJF
+Timeline: DDDDDDDDDFRRRRGGGGGGGMMMMNNNNNNNNNNHHHHAAAAAAAAJJJBBBBBBIIIIIILQQQQQQQQPPPPPPPPPOOOOSSSSSSCCCCCCCKKK
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+D     0         9         2         9         0         0        
+F     3         1         1         7         6         6        
+G     6         7         4         15        8         8        
+R     8         4         3         6         2         2        
+N     11        10        3         24        14        14       
+M     17        4         1         8         4         4        
+A     27        8         4         20        12        12       
+H     32        4         4         7         3         3        
+Q     39        8         2         32        24        24       
+B     42        6         3         14        8         8        
+J     42        3         4         8         5         5        
+I     44        6         3         18        12        12       
+E     60        10        1         [DROPPED]
+L     61        1         4         2         1         1        
+P     67        9         4         13        4         4        
+S     76        6         3         14        8         8        
+O     77        4         3         7         3         3        
+K     89        9         2         17        8         8        
+C     90        7         2         7         0         0        
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 12.67 | Avg Wait: 6.78 | Avg Resp: 6.78 | Throughput: 0.17
+
+Run #4: SRT
+Timeline: DDDFDDDDDDRRRRGGGGGGGMMMMNNNNNNNNNNHHHHAAAJJJAAAAABBBBBBIIIIIILQQQQQQQQPPPPPPPPPOOOOSSSSSSCCCCCCCKKK
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+D     0         9         2         10        1         0        
+F     3         1         1         1         0         0        
+G     6         7         4         15        8         8        
+R     8         4         3         6         2         2        
+N     11        10        3         24        14        14       
+M     17        4         1         8         4         4        
+A     27        8         4         23        15        12       
+H     32        4         4         7         3         3        
+Q     39        8         2         32        24        24       
+B     42        6         3         14        8         8        
+J     42        3         4         3         0         0        
+I     44        6         3         18        12        12       
+E     60        10        1         [DROPPED]
+L     61        1         4         2         1         1        
+P     67        9         4         13        4         4        
+S     76        6         3         14        8         8        
+O     77        4         3         7         3         3        
+K     89        9         2         17        8         8        
+C     90        7         2         7         0         0        
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 12.28 | Avg Wait: 6.39 | Avg Resp: 6.17 | Throughput: 0.17
+
+Run #4: RR
+Timeline: DDDFDDGDGRDGRNDGRNDGMRNGMNGMNAMNAHNAHNAHNQAHNBJQAIBJQAIBJQAIBQEILBQEIBPQEIPQEPSOEPSOEPSOEPSOKECPSKEC
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+D     0         9         2         19        10        0        
+F     3         1         1         1         0         0        
+G     6         7         4         21        14        0        
+R     8         4         3         14        10        1        
+N     11        10        3         34        24        2        
+M     17        4         1         14        10        3        
+A     27        8         4         32        24        2        
+H     32        4         4         12        8         1        
+Q     39        8         2         37        29        2        
+B     42        6         3         28        22        3        
+J     42        3         4         15        12        4        
+I     44        6         3         30        24        5        
+E     60        10        1         44        34        2        
+L     61        1         4         4         3         3        
+P     67        9         4         39        30        3        
+S     76        6         3         26        20        2        
+O     77        4         3         15        11        2        
+K     89        9         2         27        18        3        
+C     90        7         2         24        17        4        
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 22.95 | Avg Wait: 16.84 | Avg Resp: 2.21 | Throughput: 0.16
+
+Run #4: HPF-NP
+Timeline: DDDDDDDDDFGGGGGGGRRRRNNNNNNNNNNMMMMAAAAAAAAQQQQQQQQHHHHBBBBBBJJJIIIIIIEEEEEEEEEELPPPPPPPPPSSSSSSOOOO
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+D     0         9         2         9         0         0        
+F     3         1         1         7         6         6        
+G     6         7         4         11        4         4        
+R     8         4         3         13        9         9        
+N     11        10        3         20        10        10       
+M     17        4         1         18        14        14       
+A     27        8         4         16        8         8        
+H     32        4         4         23        19        19       
+Q     39        8         2         12        4         4        
+B     42        6         3         19        13        13       
+J     42        3         4         22        19        19       
+I     44        6         3         26        20        20       
+E     60        10        1         20        10        10       
+L     61        1         4         20        19        19       
+P     67        9         4         23        14        14       
+S     76        6         3         20        14        14       
+O     77        4         3         23        19        19       
+K     89        9         2         [DROPPED]
+C     90        7         2         [DROPPED]
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 17.76 | Avg Wait: 11.88 | Avg Resp: 11.88 | Throughput: 0.17
+HPF QUEUE STATS (Based on Initial Priority):
+  [P1] Count: 3 | Avg TAT: 15.00 | Avg Wait: 10.00 | Throughput: 0.03
+  [P2] Count: 2 | Avg TAT: 10.50 | Avg Wait: 2.00 | Throughput: 0.02
+  [P3] Count: 6 | Avg TAT: 20.17 | Avg Wait: 14.17 | Throughput: 0.06
+  [P4] Count: 6 | Avg TAT: 19.17 | Avg Wait: 13.83 | Throughput: 0.06
+
+Run #4: HPF-Pre
+Timeline: DDDFDDDDDDRRGRRNGMMMMNGNGNGNGNGNNNNAAAAAQAAAQQQQHQHQHQBHIBIJBIJEBIJEBIEBIEEEELEEEPPPPPPSPOSPOSPOSKCO
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+D     0         9         2         10        1         0        
+F     3         1         1         1         0         0        
+G     6         7         4         25        18        6        
+R     8         4         3         7         3         2        
+N     11        10        3         24        14        4        
+M     17        4         1         4         0         0        
+A     27        8         4         17        9         8        
+H     32        4         4         24        20        16       
+Q     39        8         2         15        7         1        
+B     42        6         3         30        24        12       
+J     42        3         4         25        22        17       
+I     44        6         3         29        23        12       
+E     60        10        1         21        11        3        
+L     61        1         4         17        16        16       
+P     67        9         4         28        19        14       
+S     76        6         3         28        22        11       
+O     77        4         3         23        19        12       
+K     89        9         2         27        18        8        
+C     90        7         2         24        17        8        
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 19.95 | Avg Wait: 13.84 | Avg Resp: 7.89 | Throughput: 0.16
+HPF QUEUE STATS (Based on Initial Priority):
+  [P1] Count: 3 | Avg TAT: 8.67 | Avg Wait: 3.67 | Throughput: 0.03
+  [P2] Count: 4 | Avg TAT: 19.00 | Avg Wait: 10.75 | Throughput: 0.03
+  [P3] Count: 6 | Avg TAT: 23.50 | Avg Wait: 17.50 | Throughput: 0.05
+  [P4] Count: 6 | Avg TAT: 22.67 | Avg Wait: 17.33 | Throughput: 0.05
+
+Run #5: FCFS
+Timeline: MMMMMMMMCCCSSDDDDOGGG__QQQQQQQHHHHHHPPPPPPAAAAAFFFFFVVVVVVBBBBBRRRRWWWWWWWWJJJJJJJLLLLUUUUUUUUUTTTTT
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+M     0         8         4         8         0         0        
+C     4         3         3         7         4         4        
+S     6         2         3         7         5         5        
+D     8         4         3         9         5         5        
+O     8         1         2         10        9         9        
+G     9         3         4         12        9         9        
+Q     23        7         1         7         0         0        
+H     24        6         1         12        6         6        
+P     26        6         4         16        10        10       
+A     33        5         2         14        9         9        
+F     34        5         3         18        13        13       
+V     35        6         2         23        17        17       
+B     40        5         3         23        18        18       
+R     40        4         1         27        23        23       
+W     42        8         1         33        25        25       
+J     51        7         4         31        24        24       
+L     55        4         1         31        27        27       
+U     69        9         4         26        17        17       
+T     71        9         2         33        24        24       
+I     77        5         3         [DROPPED]
+N     87        10        1         [DROPPED]
+K     89        4         3         [DROPPED]
+E     98        1         4         [DROPPED]
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 18.26 | Avg Wait: 12.89 | Avg Resp: 12.89 | Throughput: 0.18
+
+Run #5: SJF
+Timeline: MMMMMMMMOSSCCCGGGDDDD__QQQQQQQHHHHHHAAAAARRRRFFFFFBBBBBLLLLPPPPPPVVVVVVJJJJJJJIIIIIWWWWWWWWKKKKUUUUU
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+M     0         8         4         8         0         0        
+C     4         3         3         10        7         7        
+S     6         2         3         5         3         3        
+D     8         4         3         13        9         9        
+O     8         1         2         1         0         0        
+G     9         3         4         8         5         5        
+Q     23        7         1         7         0         0        
+H     24        6         1         12        6         6        
+P     26        6         4         39        33        33       
+A     33        5         2         8         3         3        
+F     34        5         3         16        11        11       
+V     35        6         2         36        30        30       
+B     40        5         3         15        10        10       
+R     40        4         1         5         1         1        
+W     42        8         1         49        41        41       
+J     51        7         4         27        20        20       
+L     55        4         1         4         0         0        
+U     69        9         4         35        26        26       
+T     71        9         2         [DROPPED]
+I     77        5         3         6         1         1        
+N     87        10        1         [DROPPED]
+K     89        4         3         6         2         2        
+E     98        1         4         [DROPPED]
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 15.50 | Avg Wait: 10.40 | Avg Resp: 10.40 | Throughput: 0.19
+
+Run #5: SRT
+Timeline: MMMMCCCSSOGGGMMMMDDDD__QQQQQQQHHHHHHAAAAARRRRFFFFFBBBBBLLLLPPPPPPVVVVVVJJJJJJJIIIIIWWWWWWWWKKKKUUUEU
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+M     0         8         4         17        9         0        
+C     4         3         3         3         0         0        
+S     6         2         3         3         1         1        
+D     8         4         3         13        9         9        
+O     8         1         2         2         1         1        
+G     9         3         4         4         1         1        
+Q     23        7         1         7         0         0        
+H     24        6         1         12        6         6        
+P     26        6         4         39        33        33       
+A     33        5         2         8         3         3        
+F     34        5         3         16        11        11       
+V     35        6         2         36        30        30       
+B     40        5         3         15        10        10       
+R     40        4         1         5         1         1        
+W     42        8         1         49        41        41       
+J     51        7         4         27        20        20       
+L     55        4         1         4         0         0        
+U     69        9         4         36        27        26       
+T     71        9         2         [DROPPED]
+I     77        5         3         6         1         1        
+N     87        10        1         [DROPPED]
+K     89        4         3         6         2         2        
+E     98        1         4         1         0         0        
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 14.71 | Avg Wait: 9.81 | Avg Resp: 9.33 | Throughput: 0.20
+
+Run #5: RR
+Timeline: MMMMCMCSMCDOSGMDGMDGD__QHQHPQHPQHPQAHFPVQAHFPBRVQWAFPBRVWJAFBLRVWJAFBLRVWJUBLTVWJUILTWJUITWNJUKITWNJ
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+M     0         8         4         18        10        0        
+C     4         3         3         6         3         0        
+S     6         2         3         7         5         1        
+D     8         4         3         13        9         2        
+O     8         1         2         4         3         3        
+G     9         3         4         11        8         4        
+Q     23        7         1         26        19        0        
+H     24        6         1         19        13        0        
+P     26        6         4         27        21        1        
+A     33        5         2         34        29        2        
+F     34        5         3         34        29        3        
+V     35        6         2         44        38        4        
+B     40        5         3         36        31        5        
+R     40        4         1         31        27        6        
+W     42        8         1         56        48        7        
+J     51        7         4         49        42        6        
+L     55        4         1         29        25        6        
+U     69        9         4         49        40        5        
+T     71        9         2         48        39        6        
+I     77        5         3         31        26        5        
+N     87        10        1         36        26        4        
+K     89        4         3         23        19        5        
+E     98        1         4         [DROPPED]
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 28.68 | Avg Wait: 23.18 | Avg Resp: 3.41 | Throughput: 0.18
+
+Run #5: HPF-NP
+Timeline: MMMMMMMMCCCSSODDDDGGG__QQQQQQQHHHHHHPPPPPPAAAAAFFFFFVVVVVVBBBBBRRRRWWWWWWWWJJJJJJJLLLLUUUUUUUUUTTTTT
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+M     0         8         4         8         0         0        
+C     4         3         3         7         4         4        
+S     6         2         3         7         5         5        
+D     8         4         3         10        6         6        
+O     8         1         2         6         5         5        
+G     9         3         4         12        9         9        
+Q     23        7         1         7         0         0        
+H     24        6         1         12        6         6        
+P     26        6         4         16        10        10       
+A     33        5         2         14        9         9        
+F     34        5         3         18        13        13       
+V     35        6         2         23        17        17       
+B     40        5         3         23        18        18       
+R     40        4         1         27        23        23       
+W     42        8         1         33        25        25       
+J     51        7         4         31        24        24       
+L     55        4         1         31        27        27       
+U     69        9         4         26        17        17       
+T     71        9         2         33        24        24       
+I     77        5         3         [DROPPED]
+N     87        10        1         [DROPPED]
+K     89        4         3         [DROPPED]
+E     98        1         4         [DROPPED]
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 18.11 | Avg Wait: 12.74 | Avg Resp: 12.74 | Throughput: 0.18
+HPF QUEUE STATS (Based on Initial Priority):
+  [P1] Count: 5 | Avg TAT: 22.00 | Avg Wait: 16.20 | Throughput: 0.05
+  [P2] Count: 4 | Avg TAT: 19.00 | Avg Wait: 13.75 | Throughput: 0.04
+  [P3] Count: 5 | Avg TAT: 13.00 | Avg Wait: 9.20 | Throughput: 0.05
+  [P4] Count: 5 | Avg TAT: 18.60 | Avg Wait: 12.00 | Throughput: 0.05
+
+Run #5: HPF-Pre
+Timeline: MMMMCCMCOSMMSMDDDDGGG__QQHQHQHQHQHQHAVAAAVRAPVWRFPVWRFPBVWRFPLBVWFPLBWFJPLBWJLBWTJWTJTUJTUINJTUINJTU
+------------------------------------------------------------------------
+Name  Arrival   Burst     Prio      TAT       Wait      Resp     
+M     0         8         4         14        6         0        
+C     4         3         3         4         1         0        
+S     6         2         3         7         5         3        
+D     8         4         3         10        6         6        
+O     8         1         2         1         0         0        
+G     9         3         4         12        9         9        
+Q     23        7         1         12        5         0        
+H     24        6         1         12        6         1        
+P     26        6         4         47        41        18       
+A     33        5         2         11        6         3        
+F     34        5         3         37        32        14       
+V     35        6         2         29        23        2        
+B     40        5         3         39        34        15       
+R     40        4         1         19        15        2        
+W     42        8         1         41        33        4        
+J     51        7         4         47        40        20       
+L     55        4         1         23        19        6        
+U     69        9         4         47        38        17       
+T     71        9         2         40        31        9        
+I     77        5         3         32        27        13       
+N     87        10        1         32        22        4        
+K     89        4         3         [DROPPED]
+E     98        1         4         [DROPPED]
+------------------------------------------------------------------------
+RUN SUMMARY: Avg TAT: 24.57 | Avg Wait: 19.00 | Avg Resp: 6.95 | Throughput: 0.18
+HPF QUEUE STATS (Based on Initial Priority):
+  [P1] Count: 6 | Avg TAT: 23.17 | Avg Wait: 16.67 | Throughput: 0.05
+  [P2] Count: 4 | Avg TAT: 20.25 | Avg Wait: 15.00 | Throughput: 0.03
+  [P3] Count: 6 | Avg TAT: 21.50 | Avg Wait: 17.50 | Throughput: 0.05
+  [P4] Count: 5 | Avg TAT: 33.40 | Avg Wait: 26.80 | Throughput: 0.04
+
+
+[==========] Final Statistics (Average over 5 runs) [==========]
+Algorithm  Avg TAT      Avg Wait     Avg Resp     Throughput  
+------------------------------------------------------------
+FCFS       21.80        16.29        16.29        18.02       
+SJF        15.37        10.13        10.13        18.89       
+SRT        13.97        8.74         7.16         18.95       
+RR         31.57        25.89        3.67         17.48       
+HPF-NP     21.88        16.37        16.37        18.02       
+HPF-Pre    28.91        23.24        8.57         17.49       

@@ -6,6 +6,9 @@ static int pick_next_srt(Process *p, int n, int now) {
         if (p[i].remaining_time <= 0) continue;
         if (p[i].arrival_time > now) continue;
 
+        // FIX: Cutoff Rule inside selection
+        if (p[i].start_time == -1 && now >= TOTAL_QUANTA) continue;
+
         if (best == -1) {
             best = i;
         } else if (p[i].remaining_time < p[best].remaining_time) {
@@ -13,8 +16,7 @@ static int pick_next_srt(Process *p, int n, int now) {
         } else if (p[i].remaining_time == p[best].remaining_time) {
             if (p[i].arrival_time < p[best].arrival_time)
                 best = i;
-            else if (p[i].arrival_time == p[best].arrival_time &&
-                     p[i].id < p[best].id)
+            else if (p[i].arrival_time == p[best].arrival_time && p[i].id < p[best].id)
                 best = i;
         }
     }
@@ -22,20 +24,31 @@ static int pick_next_srt(Process *p, int n, int now) {
 }
 
 void run_SRT(Process *processes, int process_count) {
-    for (int t = 0; t < TOTAL_QUANTA; t++) {
+    int t = 0;
+    int completed = 0;
+
+    // FIX: Changed "for t < TOTAL" to "while completed < count"
+    while (completed < process_count) {
         int idx = pick_next_srt(processes, process_count, t);
-        if (idx == -1) continue;   // idle
+        
+        if (idx == -1) { 
+            if (t >= TOTAL_QUANTA) break; // Stop if idle past 100
+            t++;
+            continue; 
+        }
 
         Process *cur = &processes[idx];
 
         if (cur->start_time < 0)
             cur->start_time = t;
 
-        cur->history[t] = true;
+        if (t < TOTAL_QUANTA) cur->history[t] = true; // Safe visual update
         cur->remaining_time--;
 
         if (cur->remaining_time == 0) {
-            cur->finish_time = t + 1;
+            cur->finish_time = t + 1; // Logic depends on increment time
+            completed++;
         }
+        t++; // Increment time
     }
 }
