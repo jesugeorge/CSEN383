@@ -307,6 +307,21 @@ int main(int argc, char *argv[]) {
   // - Average response time (total response time / customers served)
   // - Average turnaround time (total turnaround time / customers served)
   // - Throughput (customers served / 60 minutes)
+  int served = 0, turned = 0, resp = 0, turn = 0;
+
+  for (int i = 0; i < NUM_SELLERS; i++) {
+    served += sellers[i].served;
+    turned += sellers[i].turned_away;
+    resp += sellers[i].total_response;
+    turn += sellers[i].total_turnaround;
+  }
+
+  printf("\n--- Final Report ---\n");
+  printf("Seats sold: %d\n", venue.seats_sold);
+  printf("Turned away: %d\n", turned);
+  printf("Avg response time: %.2f\n", (float)resp / served);
+  printf("Avg turnaround time: %.2f\n", (float)turn / served);
+  printf("Throughput: %.2f customers/min\n", served / 60.0);
 
   printf("\nSimulation Complete.\n");
 
