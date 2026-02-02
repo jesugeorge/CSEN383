@@ -16,11 +16,11 @@ SellerArgs sellers[NUM_SELLERS];
 // ============================================================================
 
 typedef struct {
-  long served;                 // customers who were assigned a seat / started service
-  long finished;               // customers who completed service (left)
-  long turned_away;            // customers rejected due to sold out
-  long total_response_time;    // sum(start_time - arrival_time)
-  long total_turnaround_time;  // sum(finish_time - arrival_time)
+  long served;      // customers who were assigned a seat / started service
+  long finished;    // customers who completed service (left)
+  long turned_away; // customers rejected due to sold out
+  long total_response_time;   // sum(start_time - arrival_time)
+  long total_turnaround_time; // sum(finish_time - arrival_time)
 } TypeStats;
 
 static TypeStats stats_H = {0};
@@ -30,8 +30,10 @@ static TypeStats stats_L = {0};
 static pthread_mutex_t stats_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 static TypeStats *get_stats(char type) {
-  if (type == 'H') return &stats_H;
-  if (type == 'M') return &stats_M;
+  if (type == 'H')
+    return &stats_H;
+  if (type == 'M')
+    return &stats_M;
   return &stats_L;
 }
 
@@ -40,26 +42,31 @@ static TypeStats *get_stats(char type) {
 #define NUM_M 3
 #define NUM_L 6
 
-static void print_type_report(const char *name, char type, int num_sellers_of_type) {
+static void print_type_report(const char *name, char type,
+                              int num_sellers_of_type) {
   TypeStats *ts = get_stats(type);
 
   double avg_resp = (ts->served > 0)
-                      ? ((double)ts->total_response_time / (double)ts->served)
-                      : 0.0;
+                        ? ((double)ts->total_response_time / (double)ts->served)
+                        : 0.0;
 
   // Avg turnaround should be computed over FINISHED customers only
-  double avg_tat = (ts->finished > 0)
-                     ? ((double)ts->total_turnaround_time / (double)ts->finished)
-                     : 0.0;
+  double avg_tat =
+      (ts->finished > 0)
+          ? ((double)ts->total_turnaround_time / (double)ts->finished)
+          : 0.0;
 
   // Throughput (customers per minute)
-  // A) Assigned throughput: customers who were assigned a seat / started service
+  // A) Assigned throughput: customers who were assigned a seat / started
+  // service
   double tp_assigned_type = (double)ts->served / (double)MAX_MINUTES;
-  double tp_assigned_per_seller = tp_assigned_type / (double)num_sellers_of_type;
+  double tp_assigned_per_seller =
+      tp_assigned_type / (double)num_sellers_of_type;
 
   // B) Finished throughput: customers who completed service (left)
   double tp_finished_type = (double)ts->finished / (double)MAX_MINUTES;
-  double tp_finished_per_seller = tp_finished_type / (double)num_sellers_of_type;
+  double tp_finished_per_seller =
+      tp_finished_type / (double)num_sellers_of_type;
 
   printf("\n[%s Sellers]\n", name);
   printf("  Served (assigned): %ld\n", ts->served);
@@ -67,16 +74,19 @@ static void print_type_report(const char *name, char type, int num_sellers_of_ty
   printf("  Turned Away: %ld\n", ts->turned_away);
 
   printf("  Avg Response Time (min/customer): %.2f\n", avg_resp);
-  printf("  Avg Turnaround Time (min/customer, finished only): %.2f\n", avg_tat);
+  printf("  Avg Turnaround Time (min/customer, finished only): %.2f\n",
+         avg_tat);
 
-  printf("  Throughput Assigned (cust/min, type total): %.4f\n", tp_assigned_type);
-  printf("  Throughput Assigned per seller (cust/min/seller, avg): %.4f\n", tp_assigned_per_seller);
+  printf("  Throughput Assigned (cust/min, type total): %.4f\n",
+         tp_assigned_type);
+  printf("  Throughput Assigned per seller (cust/min/seller, avg): %.4f\n",
+         tp_assigned_per_seller);
 
-  printf("  Throughput Finished (cust/min, type total): %.4f\n", tp_finished_type);
-  printf("  Throughput Finished per seller (cust/min/seller, avg): %.4f\n", tp_finished_per_seller);
+  printf("  Throughput Finished (cust/min, type total): %.4f\n",
+         tp_finished_type);
+  printf("  Throughput Finished per seller (cust/min/seller, avg): %.4f\n",
+         tp_finished_per_seller);
 }
-
-
 
 // ============================================================================
 // Queue Functions
@@ -198,7 +208,7 @@ int sell_seat(char seller_type, int customer_id, int seller_id) {
 
   if (row != -1) {
     char seat_label[10];
-    sprintf(seat_label, "%c%d:%02d", seller_type, seller_id + 1, customer_id);
+    sprintf(seat_label, "%c%d%02d", seller_type, seller_id + 1, customer_id);
     strcpy(venue.seats[row][col], seat_label);
     venue.seats_sold++;
   }
@@ -207,9 +217,33 @@ int sell_seat(char seller_type, int customer_id, int seller_id) {
   return (row != -1);
 }
 
-// TODO: Implement print_chart() function
-// Should print the 10x10 seating chart in a formatted way
-void print_chart() {}
+void print_chart() {
+  pthread_mutex_lock(&venue.mutex);
+  printf("Seating Chart:\n");
+  printf("      ");
+  for (int j = 0; j < 10; j++) {
+    printf("%6d", j + 1);
+  }
+  printf("\n");
+  printf("    +");
+  for (int j = 0; j < 10; j++) {
+    printf("------");
+  }
+  printf("+\n");
+  for (int i = 0; i < 10; i++) {
+    printf("%4d|", i + 1);
+    for (int j = 0; j < 10; j++) {
+      printf("%6s", venue.seats[i][j]);
+    }
+    printf(" |\n");
+  }
+  printf("    +");
+  for (int j = 0; j < 10; j++) {
+    printf("------");
+  }
+  printf("+\n");
+  pthread_mutex_unlock(&venue.mutex);
+}
 
 void log_msg(const char *msg) {
   pthread_mutex_lock(&venue.mutex);
@@ -257,6 +291,10 @@ void *seller_thread(void *arg) {
     if (current == NULL && s->queue->front != NULL) {
       Customer *c = s->queue->front;
       if (c->arrival_time <= minute) {
+        char arrival_msg[100];
+        sprintf(arrival_msg, "[00:%02d] Seller %c%d: Customer %02d arrives.",
+                minute, s->seller_type, s->seller_id + 1, c->id);
+        log_msg(arrival_msg);
         if (sell_seat(s->seller_type, c->id, s->seller_id)) {
           current = dequeue(s->queue);
           current->start_time = minute;
@@ -272,8 +310,8 @@ void *seller_thread(void *arg) {
           pthread_mutex_unlock(&stats_mutex);
 
           char msg[100];
-          sprintf(msg, "0:%02d Customer %c%d:%02d assigned seat.", minute,
-                  s->seller_type, s->seller_id + 1, current->id);
+          sprintf(msg, "[00:%02d] Seller %c%d: Customer %02d assigned seat.",
+                  minute, s->seller_type, s->seller_id + 1, current->id);
           log_msg(msg);
           print_chart();
         } else {
@@ -286,8 +324,10 @@ void *seller_thread(void *arg) {
           pthread_mutex_unlock(&stats_mutex);
 
           char msg[100];
-          sprintf(msg, "0:%02d Customer %c%d:%02d turned away (Sold Out).",
-                  minute, s->seller_type, s->seller_id + 1, rejected->id);
+          sprintf(
+              msg,
+              "[00:%02d] Seller %c%d: Customer %02d turned away (Sold Out).",
+              minute, s->seller_type, s->seller_id + 1, rejected->id);
           log_msg(msg);
           free(rejected);
         }
@@ -310,7 +350,7 @@ void *seller_thread(void *arg) {
         pthread_mutex_unlock(&stats_mutex);
 
         char msg[100];
-        sprintf(msg, "0:%02d Customer %c%d:%02d leaves.", minute,
+        sprintf(msg, "[00:%02d] Seller %c%d: Customer %02d leaves.", minute,
                 s->seller_type, s->seller_id + 1, current->id);
         log_msg(msg);
         print_chart();
@@ -405,13 +445,19 @@ int main(int argc, char *argv[]) {
   // Overall totals (all types combined)
   long total_served = stats_H.served + stats_M.served + stats_L.served;
   long total_finished = stats_H.finished + stats_M.finished + stats_L.finished;
-  long total_turned_away = stats_H.turned_away + stats_M.turned_away + stats_L.turned_away;
+  long total_turned_away =
+      stats_H.turned_away + stats_M.turned_away + stats_L.turned_away;
 
-  long total_resp = stats_H.total_response_time + stats_M.total_response_time + stats_L.total_response_time;
-  long total_tat = stats_H.total_turnaround_time + stats_M.total_turnaround_time + stats_L.total_turnaround_time;
+  long total_resp = stats_H.total_response_time + stats_M.total_response_time +
+                    stats_L.total_response_time;
+  long total_tat = stats_H.total_turnaround_time +
+                   stats_M.total_turnaround_time +
+                   stats_L.total_turnaround_time;
 
-  double overall_avg_resp = (total_served > 0) ? ((double)total_resp / (double)total_served) : 0.0;
-  double overall_avg_tat = (total_finished > 0) ? ((double)total_tat / (double)total_finished) : 0.0;
+  double overall_avg_resp =
+      (total_served > 0) ? ((double)total_resp / (double)total_served) : 0.0;
+  double overall_avg_tat =
+      (total_finished > 0) ? ((double)total_tat / (double)total_finished) : 0.0;
 
   double overall_tp_assigned = (double)total_served / (double)MAX_MINUTES;
   double overall_tp_finished = (double)total_finished / (double)MAX_MINUTES;
@@ -421,9 +467,12 @@ int main(int argc, char *argv[]) {
   printf("  Finished (leaves): %ld\n", total_finished);
   printf("  Turned Away: %ld\n", total_turned_away);
   printf("  Avg Response Time (min/customer): %.2f\n", overall_avg_resp);
-  printf("  Avg Turnaround Time (min/customer, finished only): %.2f\n", overall_avg_tat);
-  printf("  Throughput Assigned (cust/min, total): %.4f\n", overall_tp_assigned);
-  printf("  Throughput Finished (cust/min, total): %.4f\n", overall_tp_finished);
+  printf("  Avg Turnaround Time (min/customer, finished only): %.2f\n",
+         overall_avg_tat);
+  printf("  Throughput Assigned (cust/min, total): %.4f\n",
+         overall_tp_assigned);
+  printf("  Throughput Finished (cust/min, total): %.4f\n",
+         overall_tp_finished);
 
   printf("======================================================\n");
 
