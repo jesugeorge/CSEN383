@@ -54,3 +54,4 @@ dkms.conf
 # debug information files
 *.dwo
 proj2/scheduler
+proj3/proj3
