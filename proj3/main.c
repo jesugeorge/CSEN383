@@ -70,10 +70,10 @@ static void print_type_report(const char *name, char type, int num_sellers_of_ty
   printf("  Avg Turnaround Time (min/customer, finished only): %.2f\n", avg_tat);
 
   printf("  Throughput Assigned (cust/min, type total): %.4f\n", tp_assigned_type);
-  printf("  Throughput Assigned (cust/min/seller, avg): %.4f\n", tp_assigned_per_seller);
+  printf("  Throughput Assigned per seller (cust/min/seller, avg): %.4f\n", tp_assigned_per_seller);
 
   printf("  Throughput Finished (cust/min, type total): %.4f\n", tp_finished_type);
-  printf("  Throughput Finished (cust/min/seller, avg): %.4f\n", tp_finished_per_seller);
+  printf("  Throughput Finished per seller (cust/min/seller, avg): %.4f\n", tp_finished_per_seller);
 }
 
 
@@ -262,7 +262,6 @@ void *seller_thread(void *arg) {
           current->start_time = minute;
           service_timer = current->service_time;
 
-
           // Stats: served count + response time
           long resp = (long)minute - (long)current->arrival_time;
 
@@ -385,12 +384,14 @@ int main(int argc, char *argv[]) {
     pthread_join(threads[i], NULL);
   }
 
-  // Print final report here
+  // Final report
   // - Total seats sold (from venue.seats_sold)
+  // - Total customers who completed service (left)
   // - Total customers turned away (sum from all sellers)
   // - Average response time (total response time / customers served)
-  // - Average turnaround time (total turnaround time / customers served)
-  // - Throughput (customers served / 60 minutes)
+  // - Average turnaround time (total turnaround time / customers finished)
+  // - Throughput Assigned (customers served / 60 minutes)
+  // - Throughput Finished (customers finished / 60 minutes)
 
   // Final report (per seller type)
   printf("\n==================== Final Report ====================\n");
@@ -401,7 +402,7 @@ int main(int argc, char *argv[]) {
   print_type_report("Medium", 'M', NUM_M);
   print_type_report("Low", 'L', NUM_L);
 
-  // Optional: overall totals (all types combined)
+  // Overall totals (all types combined)
   long total_served = stats_H.served + stats_M.served + stats_L.served;
   long total_finished = stats_H.finished + stats_M.finished + stats_L.finished;
   long total_turned_away = stats_H.turned_away + stats_M.turned_away + stats_L.turned_away;
