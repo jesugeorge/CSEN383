@@ -307,7 +307,6 @@ static int lru_replace(PageFrame f[], int total, Process *req, int vpage,
   return victim; // -1 means "no victim found" (shouldn't happen if memory full)
 }
 
-
 // ---- LFU: stub ----
 // ---- LFU: evict page with lowest use_count ----
 static int lfu_replace(PageFrame f[], int total, Process *req, int vpage,
@@ -337,7 +336,6 @@ static int lfu_replace(PageFrame f[], int total, Process *req, int vpage,
 
   return victim;
 }
-
 
 // ---- MFU: stub ----
 static int mfu_replace(PageFrame f[], int total, Process *req, int vpage,
@@ -374,8 +372,6 @@ static int random_replace(PageFrame f[], int total, Process *req, int vpage,
   return candidates[r];
 }
 
-
-
 static ReplaceFn get_replace_fn(Algorithm alg) {
   switch (alg) {
   case ALG_FIFO:
@@ -393,7 +389,20 @@ static ReplaceFn get_replace_fn(Algorithm alg) {
   }
 }
 
-static int is_stub(Algorithm alg) { return (alg != ALG_FIFO && alg != ALG_LRU); }
+// Probe whether an algorithm is implemented by calling it on a single
+// occupied test frame.  Stubs return -1; real implementations return 0.
+static int is_stub(Algorithm alg) {
+  PageFrame test[1];
+  test[0].occupied = 1;
+  test[0].owner = &all_procs[0];
+  test[0].virt_page = 0;
+  test[0].load_time = 0;
+  test[0].last_used = 0;
+  test[0].use_count = 1;
+
+  ReplaceFn fn = get_replace_fn(alg);
+  return (fn(test, 1, &all_procs[0], 0, 1) < 0);
+}
 
 // ===========================================================================
 // Handle a page reference for one process
