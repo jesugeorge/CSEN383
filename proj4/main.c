@@ -280,17 +280,33 @@ static int fifo_replace(PageFrame f[], int total, Process *req, int vpage,
   return victim;
 }
 
-// ---- LRU: stub ----
+// ---- LRU: evict page with oldest last_used timestamp ----
 static int lru_replace(PageFrame f[], int total, Process *req, int vpage,
                        int tick) {
-  // TODO: Implement LRU — evict page with oldest last_used timestamp
-  (void)f;
-  (void)total;
-  (void)req;
-  (void)vpage;
-  (void)tick;
-  return -1;
+  int victim = -1;
+  int oldest_used = tick + 1;
+  int oldest_load = tick + 1;
+
+  for (int i = 0; i < total; i++) {
+    // only consider frames that currently contain a loaded virtual page
+    if (f[i].occupied && f[i].virt_page >= 0 && f[i].owner != NULL) {
+      if (f[i].last_used < oldest_used) {
+        oldest_used = f[i].last_used;
+        oldest_load = f[i].load_time;
+        victim = i;
+      } else if (f[i].last_used == oldest_used) {
+        // tie-break: evict the one that has been in memory longer
+        if (f[i].load_time < oldest_load) {
+          oldest_load = f[i].load_time;
+          victim = i;
+        }
+      }
+    }
+  }
+
+  return victim; // -1 means "no victim found" (shouldn't happen if memory full)
 }
+
 
 // ---- LFU: stub ----
 static int lfu_replace(PageFrame f[], int total, Process *req, int vpage,
@@ -345,7 +361,7 @@ static ReplaceFn get_replace_fn(Algorithm alg) {
   }
 }
 
-static int is_stub(Algorithm alg) { return (alg != ALG_FIFO); }
+static int is_stub(Algorithm alg) { return (alg != ALG_FIFO && alg != ALG_LRU); }
 
 // ===========================================================================
 // Handle a page reference for one process
