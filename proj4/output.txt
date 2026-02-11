@@ -1,0 +1,593 @@
+
+======================================================================
+  PAGE REPLACEMENT ALGORITHMS SIMULATOR
+  Jobs: 150 | Physical Pages: 100 | Duration: 60000 ms
+======================================================================
+
+======================================================================
+  [FIFO] Page Replacement
+======================================================================
+
+Run 1 (detailed trace — first 100 page references)
+----------------------------------------------------------------------
+  Time | Proc   | Page | Hit? | Eviction        
+----------------------------------------------------------------------
+   0.2s | >>> Proc I ENTER  | 11 pages | 2s duration
+Mem: [IIIIIIIIIII.........................................................................................]
+   0.2s | Proc I  | Page  0 | HIT  |              --
+   0.3s | Proc I  | Page  1 | MISS | Free frame used
+   0.4s | Proc I  | Page  0 | HIT  |              --
+   0.5s | Proc I  | Page  0 | HIT  |              --
+   0.6s | Proc I  | Page 10 | MISS | Free frame used
+   0.7s | >>> Proc M ENTER  | 11 pages | 4s duration
+Mem: [IIIIIIIIIIIMMMMMMMMMMM..............................................................................]
+   0.7s | Proc I  | Page  9 | MISS | Free frame used
+   0.7s | Proc M  | Page  0 | HIT  |              --
+   0.8s | Proc I  | Page 10 | HIT  |              --
+   0.8s | Proc M  | Page  5 | MISS | Free frame used
+   0.9s | Proc I  | Page  3 | MISS | Free frame used
+   0.9s | Proc M  | Page  0 | HIT  |              --
+   1.0s | Proc I  | Page  2 | MISS | Free frame used
+   1.0s | Proc M  | Page 10 | MISS | Free frame used
+   1.1s | Proc I  | Page  1 | HIT  |              --
+   1.1s | Proc M  | Page  1 | MISS | Free frame used
+   1.2s | Proc I  | Page  9 | HIT  |              --
+   1.2s | Proc M  | Page  9 | MISS | Free frame used
+   1.3s | Proc I  | Page  6 | MISS | Free frame used
+   1.3s | Proc M  | Page 10 | HIT  |              --
+   1.4s | Proc I  | Page  9 | HIT  |              --
+   1.4s | Proc M  | Page  9 | HIT  |              --
+   1.5s | Proc I  | Page 10 | HIT  |              --
+   1.5s | Proc M  | Page 10 | HIT  |              --
+   1.6s | Proc I  | Page  9 | HIT  |              --
+   1.6s | Proc M  | Page 10 | HIT  |              --
+   1.7s | Proc I  | Page  8 | MISS | Free frame used
+   1.7s | Proc M  | Page 10 | HIT  |              --
+   1.8s | Proc I  | Page  9 | HIT  |              --
+   1.8s | Proc M  | Page  9 | HIT  |              --
+   1.9s | Proc I  | Page  8 | HIT  |              --
+   1.9s | Proc M  | Page 10 | HIT  |              --
+   2.0s | Proc I  | Page  7 | MISS | Free frame used
+   2.0s | Proc M  | Page 10 | HIT  |              --
+   2.1s | >>> Proc M ENTER  | 11 pages | 1s duration
+Mem: [IIIIIIIIIIIMMMMMMMMMMMMMMMMMMMMMM...................................................................]
+   2.1s | Proc I  | Page  5 | MISS | Free frame used
+   2.1s | Proc M  | Page  9 | HIT  |              --
+   2.1s | Proc M  | Page  0 | HIT  |              --
+   2.1s | <<< Proc I EXIT   | 11 pages | 2s duration
+Mem: [...........MMMMMMMMMMMMMMMMMMMMMM...................................................................]
+   2.2s | Proc M  | Page  2 | MISS | Free frame used
+   2.2s | Proc M  | Page  9 | HIT  |              --
+   2.3s | >>> Proc a ENTER  | 17 pages | 5s duration
+Mem: [aaaaaaaaaaaMMMMMMMMMMMMMMMMMMMMMMaaaaaa.............................................................]
+   2.3s | Proc M  | Page  6 | MISS | Free frame used
+   2.3s | Proc M  | Page  0 | HIT  |              --
+   2.3s | Proc a  | Page  0 | HIT  |              --
+   2.4s | >>> Proc z ENTER  | 17 pages | 2s duration
+Mem: [aaaaaaaaaaaMMMMMMMMMMMMMMMMMMMMMMaaaaaazzzzzzzzzzzzzzzzz............................................]
+   2.4s | >>> Proc 5 ENTER  | 31 pages | 2s duration
+Mem: [aaaaaaaaaaaMMMMMMMMMMMMMMMMMMMMMMaaaaaazzzzzzzzzzzzzzzzz5555555555555555555555555555555.............]
+   2.4s | Proc M  | Page  5 | MISS | Free frame used
+   2.4s | Proc M  | Page  5 | HIT  |              --
+   2.4s | Proc a  | Page  0 | HIT  |              --
+   2.4s | Proc z  | Page  0 | HIT  |              --
+   2.4s | Proc 5  | Page  0 | HIT  |              --
+   2.5s | Proc M  | Page  4 | MISS | Free frame used
+   2.5s | Proc M  | Page  7 | MISS | Free frame used
+   2.5s | Proc a  | Page  1 | MISS | Free frame used
+   2.5s | Proc z  | Page  8 | MISS | Free frame used
+   2.5s | Proc 5  | Page 10 | MISS | Free frame used
+   2.6s | Proc M  | Page  4 | HIT  |              --
+   2.6s | Proc M  | Page  4 | MISS | Free frame used
+   2.6s | Proc a  | Page  2 | MISS | Free frame used
+   2.6s | Proc z  | Page  0 | HIT  |              --
+   2.6s | Proc 5  | Page  9 | MISS | Free frame used
+   2.7s | Proc M  | Page  5 | HIT  |              --
+   2.7s | Proc M  | Page  8 | MISS | Free frame used
+   2.7s | Proc a  | Page  5 | MISS | Free frame used
+   2.7s | Proc z  | Page  0 | HIT  |              --
+   2.7s | Proc 5  | Page  9 | HIT  |              --
+   2.8s | Proc M  | Page 10 | MISS | Free frame used
+   2.8s | Proc M  | Page  9 | HIT  |              --
+   2.8s | Proc a  | Page 10 | MISS | Free frame used
+   2.8s | Proc z  | Page  7 | MISS | Free frame used
+   2.8s | Proc 5  | Page  9 | HIT  |              --
+   2.9s | Proc M  | Page 10 | HIT  |              --
+   2.9s | Proc M  | Page  2 | MISS | Free frame used
+   2.9s | Proc a  | Page 10 | HIT  |              --
+   2.9s | Proc z  | Page  6 | MISS | Free frame used
+   2.9s | Proc 5  | Page  5 | MISS | Free frame used
+   3.0s | Proc M  | Page  0 | HIT  |              --
+   3.0s | Proc M  | Page  1 | HIT  |              --
+   3.0s | Proc a  | Page  3 | MISS | Free frame used
+   3.0s | Proc z  | Page  4 | MISS | Free frame used
+   3.0s | Proc 5  | Page  6 | MISS | Free frame used
+   3.0s | <<< Proc M EXIT   | 11 pages | 1s duration
+Mem: [aaaaaaaaaaaMMMMMMMMMMM...........aaaaaazzzzzzzzzzzzzzzzz5555555555555555555555555555555.............]
+   3.1s | >>> Proc V ENTER  | 11 pages | 3s duration
+Mem: [aaaaaaaaaaaMMMMMMMMMMMVVVVVVVVVVVaaaaaazzzzzzzzzzzzzzzzz5555555555555555555555555555555.............]
+   3.1s | Proc 5  | Page 10 | HIT  |              --
+   3.1s | Proc M  | Page  0 | HIT  |              --
+   3.1s | Proc a  | Page  3 | HIT  |              --
+   3.1s | Proc z  | Page  5 | MISS | Free frame used
+   3.1s | Proc V  | Page  0 | HIT  |              --
+   3.2s | Proc 5  | Page  0 | HIT  |              --
+   3.2s | Proc M  | Page  0 | HIT  |              --
+   3.2s | Proc a  | Page  4 | MISS | Free frame used
+   3.2s | Proc z  | Page  2 | MISS | Free frame used
+   3.2s | Proc V  | Page  1 | MISS | Free frame used
+   3.3s | Proc 5  | Page 10 | HIT  |              --
+   3.3s | Proc M  | Page  5 | HIT  |              --
+   3.3s | Proc a  | Page  4 | HIT  |              --
+   3.3s | Proc z  | Page  4 | HIT  |              --
+   3.3s | Proc V  | Page  8 | MISS | Free frame used
+   3.4s | Proc 5  | Page 10 | HIT  |              --
+   3.4s | Proc M  | Page  6 | MISS | Free frame used
+   3.4s | Proc a  | Page 10 | HIT  |              --
+   3.4s | Proc z  | Page  0 | HIT  |              --
+   3.4s | Proc V  | Page  8 | HIT  |              --
+   3.5s | Proc 5  | Page 10 | HIT  |              --
+   3.5s | Proc M  | Page  6 | HIT  |              --
+   3.5s | Proc a  | Page  9 | MISS | Free frame used
+   3.5s | Proc z  | Page  9 | MISS | Free frame used
+   3.8s | >>> Proc A ENTER  |  5 pages | 1s duration
+Mem: [aaaaaaaaaaaMMMMMMMMMMMVVVVVVVVVVVaaaaaazzzzzzzzzzzzzzzzz5555555555555555555555555555555AAAAA........]
+   4.3s | <<< Proc z EXIT   | 17 pages | 2s duration
+Mem: [aaaaaaaaaaaMMMMMMMMMMMVVVVVVVVVVVaaaaaa.................5555555555555555555555555555555AAAAA........]
+   4.3s | <<< Proc 5 EXIT   | 31 pages | 2s duration
+Mem: [aaaaaaaaaaaMMMMMMMMMMMVVVVVVVVVVVaaaaaa................................................AAAAA........]
+   4.6s | <<< Proc M EXIT   | 11 pages | 4s duration
+Mem: [aaaaaaaaaaa...........VVVVVVVVVVVaaaaaa................................................AAAAA........]
+   4.7s | <<< Proc A EXIT   |  5 pages | 1s duration
+Mem: [aaaaaaaaaaa...........VVVVVVVVVVVaaaaaa.............................................................]
+   4.9s | >>> Proc 2 ENTER  | 11 pages | 4s duration
+Mem: [aaaaaaaaaaa22222222222VVVVVVVVVVVaaaaaa.............................................................]
+   5.0s | >>> Proc K ENTER  |  5 pages | 4s duration
+Mem: [aaaaaaaaaaa22222222222VVVVVVVVVVVaaaaaaKKKKK........................................................]
+   5.4s | >>> Proc Z ENTER  | 11 pages | 4s duration
+Mem: [aaaaaaaaaaa22222222222VVVVVVVVVVVaaaaaaKKKKKZZZZZZZZZZZ.............................................]
+   6.0s | <<< Proc V EXIT   | 11 pages | 3s duration
+Mem: [aaaaaaaaaaa22222222222...........aaaaaaKKKKKZZZZZZZZZZZ.............................................]
+   6.3s | >>> Proc H ENTER  | 17 pages | 3s duration
+Mem: [aaaaaaaaaaa22222222222HHHHHHHHHHHaaaaaaKKKKKZZZZZZZZZZZHHHHHH.......................................]
+   6.5s | >>> Proc c ENTER  |  5 pages | 4s duration
+Mem: [aaaaaaaaaaa22222222222HHHHHHHHHHHaaaaaaKKKKKZZZZZZZZZZZHHHHHHccccc..................................]
+   7.0s | >>> Proc 0 ENTER  | 17 pages | 4s duration
+Mem: [aaaaaaaaaaa22222222222HHHHHHHHHHHaaaaaaKKKKKZZZZZZZZZZZHHHHHHccccc00000000000000000.................]
+   7.2s | <<< Proc a EXIT   | 17 pages | 5s duration
+Mem: [...........22222222222HHHHHHHHHHH......KKKKKZZZZZZZZZZZHHHHHHccccc00000000000000000.................]
+   8.6s | >>> Proc b ENTER  | 31 pages | 2s duration
+Mem: [bbbbbbbbbbb22222222222HHHHHHHHHHHbbbbbbKKKKKZZZZZZZZZZZHHHHHHccccc00000000000000000bbbbbbbbbbbbbb...]
+   8.8s | <<< Proc 2 EXIT   | 11 pages | 4s duration
+Mem: [bbbbbbbbbbb...........HHHHHHHHHHHbbbbbbKKKKKZZZZZZZZZZZHHHHHHccccc00000000000000000bbbbbbbbbbbbbb...]
+   8.9s | <<< Proc K EXIT   |  5 pages | 4s duration
+Mem: [bbbbbbbbbbb...........HHHHHHHHHHHbbbbbb.....ZZZZZZZZZZZHHHHHHccccc00000000000000000bbbbbbbbbbbbbb...]
+   9.2s | <<< Proc H EXIT   | 17 pages | 3s duration
+Mem: [bbbbbbbbbbb......................bbbbbb.....ZZZZZZZZZZZ......ccccc00000000000000000bbbbbbbbbbbbbb...]
+   9.3s | <<< Proc Z EXIT   | 11 pages | 4s duration
+Mem: [bbbbbbbbbbb......................bbbbbb......................ccccc00000000000000000bbbbbbbbbbbbbb...]
+  10.3s | >>> Proc d ENTER  | 11 pages | 4s duration
+Mem: [bbbbbbbbbbbddddddddddd...........bbbbbb......................ccccc00000000000000000bbbbbbbbbbbbbb...]
+  10.4s | <<< Proc c EXIT   |  5 pages | 4s duration
+Mem: [bbbbbbbbbbbddddddddddd...........bbbbbb...........................00000000000000000bbbbbbbbbbbbbb...]
+  10.5s | <<< Proc b EXIT   | 31 pages | 2s duration
+Mem: [...........ddddddddddd............................................00000000000000000.................]
+  10.7s | >>> Proc p ENTER  | 11 pages | 1s duration
+Mem: [pppppppppppddddddddddd............................................00000000000000000.................]
+  10.9s | <<< Proc 0 EXIT   | 17 pages | 4s duration
+Mem: [pppppppppppddddddddddd..............................................................................]
+  11.2s | >>> Proc C ENTER  | 17 pages | 5s duration
+Mem: [pppppppppppdddddddddddCCCCCCCCCCCCCCCCC.............................................................]
+  11.3s | >>> Proc S ENTER  | 17 pages | 3s duration
+Mem: [pppppppppppdddddddddddCCCCCCCCCCCCCCCCCSSSSSSSSSSSSSSSSS............................................]
+  11.5s | >>> Proc 1 ENTER  | 11 pages | 4s duration
+Mem: [pppppppppppdddddddddddCCCCCCCCCCCCCCCCCSSSSSSSSSSSSSSSSS11111111111.................................]
+  11.6s | >>> Proc E ENTER  | 31 pages | 1s duration
+Mem: [pppppppppppdddddddddddCCCCCCCCCCCCCCCCCSSSSSSSSSSSSSSSSS11111111111EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE..]
+  11.6s | <<< Proc p EXIT   | 11 pages | 1s duration
+Mem: [...........dddddddddddCCCCCCCCCCCCCCCCCSSSSSSSSSSSSSSSSS11111111111EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE..]
+  12.5s | <<< Proc E EXIT   | 31 pages | 1s duration
+Mem: [...........dddddddddddCCCCCCCCCCCCCCCCCSSSSSSSSSSSSSSSSS11111111111.................................]
+  12.8s | >>> Proc f ENTER  |  5 pages | 1s duration
+Mem: [fffff......dddddddddddCCCCCCCCCCCCCCCCCSSSSSSSSSSSSSSSSS11111111111.................................]
+  13.0s | >>> Proc Z ENTER  | 11 pages | 3s duration
+Mem: [fffffZZZZZZdddddddddddCCCCCCCCCCCCCCCCCSSSSSSSSSSSSSSSSS11111111111ZZZZZ............................]
+  13.1s | >>> Proc U ENTER  | 17 pages | 4s duration
+Mem: [fffffZZZZZZdddddddddddCCCCCCCCCCCCCCCCCSSSSSSSSSSSSSSSSS11111111111ZZZZZUUUUUUUUUUUUUUUUU...........]
+  13.7s | <<< Proc f EXIT   |  5 pages | 1s duration
+Mem: [.....ZZZZZZdddddddddddCCCCCCCCCCCCCCCCCSSSSSSSSSSSSSSSSS11111111111ZZZZZUUUUUUUUUUUUUUUUU...........]
+  13.8s | >>> Proc Q ENTER  |  5 pages | 2s duration
+Mem: [QQQQQZZZZZZdddddddddddCCCCCCCCCCCCCCCCCSSSSSSSSSSSSSSSSS11111111111ZZZZZUUUUUUUUUUUUUUUUU...........]
+  14.1s | >>> Proc F ENTER  | 11 pages | 4s duration
+Mem: [QQQQQZZZZZZdddddddddddCCCCCCCCCCCCCCCCCSSSSSSSSSSSSSSSSS11111111111ZZZZZUUUUUUUUUUUUUUUUUFFFFFFFFFFF]
+  14.2s | <<< Proc S EXIT   | 17 pages | 3s duration
+Mem: [QQQQQZZZZZZdddddddddddCCCCCCCCCCCCCCCCC.................11111111111ZZZZZUUUUUUUUUUUUUUUUUFFFFFFFFFFF]
+  14.2s | <<< Proc d EXIT   | 11 pages | 4s duration
+Mem: [QQQQQZZZZZZ...........CCCCCCCCCCCCCCCCC.................11111111111ZZZZZUUUUUUUUUUUUUUUUUFFFFFFFFFFF]
+  14.3s | >>> Proc B ENTER  | 17 pages | 5s duration
+Mem: [QQQQQZZZZZZBBBBBBBBBBBCCCCCCCCCCCCCCCCCBBBBBB...........11111111111ZZZZZUUUUUUUUUUUUUUUUUFFFFFFFFFFF]
+  15.4s | >>> Proc E ENTER  | 11 pages | 5s duration
+Mem: [QQQQQZZZZZZBBBBBBBBBBBCCCCCCCCCCCCCCCCCBBBBBBEEEEEEEEEEE11111111111ZZZZZUUUUUUUUUUUUUUUUUFFFFFFFFFFF]
+  15.4s | <<< Proc 1 EXIT   | 11 pages | 4s duration
+Mem: [QQQQQZZZZZZBBBBBBBBBBBCCCCCCCCCCCCCCCCCBBBBBBEEEEEEEEEEE...........ZZZZZUUUUUUUUUUUUUUUUUFFFFFFFFFFF]
+  15.7s | >>> Proc 3 ENTER  | 11 pages | 3s duration
+Mem: [QQQQQZZZZZZBBBBBBBBBBBCCCCCCCCCCCCCCCCCBBBBBBEEEEEEEEEEE33333333333ZZZZZUUUUUUUUUUUUUUUUUFFFFFFFFFFF]
+  15.7s | <<< Proc Q EXIT   |  5 pages | 2s duration
+Mem: [.....ZZZZZZBBBBBBBBBBBCCCCCCCCCCCCCCCCCBBBBBBEEEEEEEEEEE33333333333ZZZZZUUUUUUUUUUUUUUUUUFFFFFFFFFFF]
+  15.9s | <<< Proc Z EXIT   | 11 pages | 3s duration
+Mem: [...........BBBBBBBBBBBCCCCCCCCCCCCCCCCCBBBBBBEEEEEEEEEEE33333333333.....UUUUUUUUUUUUUUUUUFFFFFFFFFFF]
+  16.1s | <<< Proc C EXIT   | 17 pages | 5s duration
+Mem: [...........BBBBBBBBBBB.................BBBBBBEEEEEEEEEEE33333333333.....UUUUUUUUUUUUUUUUUFFFFFFFFFFF]
+  16.2s | >>> Proc J ENTER  | 31 pages | 2s duration
+Mem: [JJJJJJJJJJJBBBBBBBBBBBJJJJJJJJJJJJJJJJJBBBBBBEEEEEEEEEEE33333333333JJJ..UUUUUUUUUUUUUUUUUFFFFFFFFFFF]
+  17.0s | <<< Proc U EXIT   | 17 pages | 4s duration
+Mem: [JJJJJJJJJJJBBBBBBBBBBBJJJJJJJJJJJJJJJJJBBBBBBEEEEEEEEEEE33333333333JJJ...................FFFFFFFFFFF]
+  17.1s | >>> Proc Z ENTER  | 17 pages | 2s duration
+Mem: [JJJJJJJJJJJBBBBBBBBBBBJJJJJJJJJJJJJJJJJBBBBBBEEEEEEEEEEE33333333333JJJZZZZZZZZZZZZZZZZZ..FFFFFFFFFFF]
+  18.0s | <<< Proc F EXIT   | 11 pages | 4s duration
+Mem: [JJJJJJJJJJJBBBBBBBBBBBJJJJJJJJJJJJJJJJJBBBBBBEEEEEEEEEEE33333333333JJJZZZZZZZZZZZZZZZZZ.............]
+  18.1s | <<< Proc J EXIT   | 31 pages | 2s duration
+Mem: [...........BBBBBBBBBBB.................BBBBBBEEEEEEEEEEE33333333333...ZZZZZZZZZZZZZZZZZ.............]
+  18.2s | >>> Proc G ENTER  |  5 pages | 2s duration
+Mem: [GGGGG......BBBBBBBBBBB.................BBBBBBEEEEEEEEEEE33333333333...ZZZZZZZZZZZZZZZZZ.............]
+  18.2s | >>> Proc D ENTER  |  5 pages | 3s duration
+Mem: [GGGGGDDDDD.BBBBBBBBBBB.................BBBBBBEEEEEEEEEEE33333333333...ZZZZZZZZZZZZZZZZZ.............]
+  18.2s | >>> Proc T ENTER  | 31 pages | 4s duration
+Mem: [GGGGGDDDDDTBBBBBBBBBBBTTTTTTTTTTTTTTTTTBBBBBBEEEEEEEEEEE33333333333TTTZZZZZZZZZZZZZZZZZTTTTTTTTTT...]
+  18.6s | <<< Proc 3 EXIT   | 11 pages | 3s duration
+Mem: [GGGGGDDDDDTBBBBBBBBBBBTTTTTTTTTTTTTTTTTBBBBBBEEEEEEEEEEE...........TTTZZZZZZZZZZZZZZZZZTTTTTTTTTT...]
+  18.8s | >>> Proc L ENTER  | 11 pages | 4s duration
+Mem: [GGGGGDDDDDTBBBBBBBBBBBTTTTTTTTTTTTTTTTTBBBBBBEEEEEEEEEEELLLLLLLLLLLTTTZZZZZZZZZZZZZZZZZTTTTTTTTTT...]
+  19.0s | <<< Proc Z EXIT   | 17 pages | 2s duration
+Mem: [GGGGGDDDDDTBBBBBBBBBBBTTTTTTTTTTTTTTTTTBBBBBBEEEEEEEEEEELLLLLLLLLLLTTT.................TTTTTTTTTT...]
+  19.1s | >>> Proc P ENTER  |  5 pages | 5s duration
+Mem: [GGGGGDDDDDTBBBBBBBBBBBTTTTTTTTTTTTTTTTTBBBBBBEEEEEEEEEEELLLLLLLLLLLTTTPPPPP............TTTTTTTTTT...]
+  19.2s | <<< Proc B EXIT   | 17 pages | 5s duration
+Mem: [GGGGGDDDDDT...........TTTTTTTTTTTTTTTTT......EEEEEEEEEEELLLLLLLLLLLTTTPPPPP............TTTTTTTTTT...]
+  20.1s | <<< Proc G EXIT   |  5 pages | 2s duration
+Mem: [.....DDDDDT...........TTTTTTTTTTTTTTTTT......EEEEEEEEEEELLLLLLLLLLLTTTPPPPP............TTTTTTTTTT...]
+  20.2s | >>> Proc W ENTER  | 31 pages | 5s duration
+Mem: [WWWWWDDDDDTWWWWWWWWWWWTTTTTTTTTTTTTTTTTWWWWWWEEEEEEEEEEELLLLLLLLLLLTTTPPPPPWWWWWWWWW...TTTTTTTTTT...]
+  20.3s | <<< Proc E EXIT   | 11 pages | 5s duration
+Mem: [WWWWWDDDDDTWWWWWWWWWWWTTTTTTTTTTTTTTTTTWWWWWW...........LLLLLLLLLLLTTTPPPPPWWWWWWWWW...TTTTTTTTTT...]
+  20.7s | >>> Proc G ENTER  | 17 pages | 1s duration
+Mem: [WWWWWDDDDDTWWWWWWWWWWWTTTTTTTTTTTTTTTTTWWWWWWGGGGGGGGGGGLLLLLLLLLLLTTTPPPPPWWWWWWWWWGGGTTTTTTTTTTGGG]
+  21.1s | <<< Proc D EXIT   |  5 pages | 3s duration
+Mem: [WWWWW.....TWWWWWWWWWWWTTTTTTTTTTTTTTTTTWWWWWWGGGGGGGGGGGLLLLLLLLLLLTTTPPPPPWWWWWWWWWGGGTTTTTTTTTTGGG]
+  21.2s | >>> Proc P ENTER  |  5 pages | 2s duration
+Mem: [WWWWWPPPPPTWWWWWWWWWWWTTTTTTTTTTTTTTTTTWWWWWWGGGGGGGGGGGLLLLLLLLLLLTTTPPPPPWWWWWWWWWGGGTTTTTTTTTTGGG]
+  21.6s | <<< Proc G EXIT   | 17 pages | 1s duration
+Mem: [WWWWWPPPPPTWWWWWWWWWWWTTTTTTTTTTTTTTTTTWWWWWW...........LLLLLLLLLLLTTTPPPPPWWWWWWWWW...TTTTTTTTTT...]
+  22.1s | <<< Proc T EXIT   | 31 pages | 4s duration
+Mem: [WWWWWPPPPP.WWWWWWWWWWW.................WWWWWW...........LLLLLLLLLLL...PPPPPWWWWWWWWW................]
+  22.7s | >>> Proc Y ENTER  |  5 pages | 1s duration
+Mem: [WWWWWPPPPPYWWWWWWWWWWWYYYY.............WWWWWW...........LLLLLLLLLLL...PPPPPWWWWWWWWW................]
+  22.7s | <<< Proc L EXIT   | 11 pages | 4s duration
+Mem: [WWWWWPPPPPYWWWWWWWWWWWYYYY.............WWWWWW.........................PPPPPWWWWWWWWW................]
+  22.8s | >>> Proc o ENTER  | 11 pages | 4s duration
+Mem: [WWWWWPPPPPYWWWWWWWWWWWYYYYooooooooooo..WWWWWW.........................PPPPPWWWWWWWWW................]
+  22.9s | >>> Proc w ENTER  | 17 pages | 4s duration
+Mem: [WWWWWPPPPPYWWWWWWWWWWWYYYYooooooooooowwWWWWWWwwwwwwwwwwwwwww..........PPPPPWWWWWWWWW................]
+  23.1s | >>> Proc Q ENTER  |  5 pages | 2s duration
+Mem: [WWWWWPPPPPYWWWWWWWWWWWYYYYooooooooooowwWWWWWWwwwwwwwwwwwwwwwQQQQQ.....PPPPPWWWWWWWWW................]
+  23.1s | <<< Proc P EXIT   |  5 pages | 2s duration
+Mem: [WWWWW.....YWWWWWWWWWWWYYYYooooooooooowwWWWWWWwwwwwwwwwwwwwwwQQQQQ.....PPPPPWWWWWWWWW................]
+  23.6s | <<< Proc Y EXIT   |  5 pages | 1s duration
+Mem: [WWWWW......WWWWWWWWWWW....ooooooooooowwWWWWWWwwwwwwwwwwwwwwwQQQQQ.....PPPPPWWWWWWWWW................]
+  24.0s | <<< Proc P EXIT   |  5 pages | 5s duration
+Mem: [WWWWW......WWWWWWWWWWW....ooooooooooowwWWWWWWwwwwwwwwwwwwwwwQQQQQ..........WWWWWWWWW................]
+  24.5s | >>> Proc N ENTER  |  5 pages | 4s duration
+Mem: [WWWWWNNNNN.WWWWWWWWWWW....ooooooooooowwWWWWWWwwwwwwwwwwwwwwwQQQQQ..........WWWWWWWWW................]
+  24.6s | >>> Proc 8 ENTER  |  5 pages | 4s duration
+Mem: [WWWWWNNNNN8WWWWWWWWWWW8888ooooooooooowwWWWWWWwwwwwwwwwwwwwwwQQQQQ..........WWWWWWWWW................]
+  24.9s | >>> Proc 6 ENTER  | 11 pages | 3s duration
+Mem: [WWWWWNNNNN8WWWWWWWWWWW8888ooooooooooowwWWWWWWwwwwwwwwwwwwwwwQQQQQ6666666666WWWWWWWWW6...............]
+  25.0s | <<< Proc Q EXIT   |  5 pages | 2s duration
+Mem: [WWWWWNNNNN8WWWWWWWWWWW8888ooooooooooowwWWWWWWwwwwwwwwwwwwwww.....6666666666WWWWWWWWW6...............]
+  25.1s | <<< Proc W EXIT   | 31 pages | 5s duration
+Mem: [.....NNNNN8...........8888oooooooooooww......wwwwwwwwwwwwwww.....6666666666.........6...............]
+  25.2s | >>> Proc Q ENTER  | 17 pages | 2s duration
+Mem: [QQQQQNNNNN8QQQQQQQQQQQ8888ooooooooooowwQ.....wwwwwwwwwwwwwww.....6666666666.........6...............]
+  26.0s | >>> Proc i ENTER  | 11 pages | 5s duration
+Mem: [QQQQQNNNNN8QQQQQQQQQQQ8888ooooooooooowwQiiiiiwwwwwwwwwwwwwwwiiiii6666666666i........6...............]
+  26.7s | <<< Proc o EXIT   | 11 pages | 4s duration
+Mem: [QQQQQNNNNN8QQQQQQQQQQQ8888...........wwQiiiiiwwwwwwwwwwwwwwwiiiii6666666666i........6...............]
+  26.8s | >>> Proc N ENTER  | 31 pages | 5s duration
+Mem: [QQQQQNNNNN8QQQQQQQQQQQ8888NNNNNNNNNNNwwQiiiiiwwwwwwwwwwwwwwwiiiii6666666666iNNNNNNNN6NNNNNNNNNNNN...]
+  26.8s | <<< Proc w EXIT   | 17 pages | 4s duration
+Mem: [QQQQQNNNNN8QQQQQQQQQQQ8888NNNNNNNNNNN..Qiiiii...............iiiii6666666666iNNNNNNNN6NNNNNNNNNNNN...]
+  27.1s | >>> Proc Q ENTER  | 11 pages | 1s duration
+Mem: [QQQQQNNNNN8QQQQQQQQQQQ8888NNNNNNNNNNNQQQiiiiiQQQQQQQQQ......iiiii6666666666iNNNNNNNN6NNNNNNNNNNNN...]
+  27.1s | <<< Proc Q EXIT   | 17 pages | 2s duration
+Mem: [.....NNNNN8...........8888NNNNNNNNNNNQQ.iiiiiQQQQQQQQQ......iiiii6666666666iNNNNNNNN6NNNNNNNNNNNN...]
+  27.8s | <<< Proc 6 EXIT   | 11 pages | 3s duration
+Mem: [.....NNNNN8...........8888NNNNNNNNNNNQQ.iiiiiQQQQQQQQQ......iiiii..........iNNNNNNNN.NNNNNNNNNNNN...]
+  28.0s | <<< Proc Q EXIT   | 11 pages | 1s duration
+Mem: [.....NNNNN8...........8888NNNNNNNNNNN...iiiii...............iiiii..........iNNNNNNNN.NNNNNNNNNNNN...]
+  28.2s | >>> Proc M ENTER  | 17 pages | 1s duration
+Mem: [MMMMMNNNNN8MMMMMMMMMMM8888NNNNNNNNNNNM..iiiii...............iiiii..........iNNNNNNNN.NNNNNNNNNNNN...]
+  28.3s | >>> Proc O ENTER  | 17 pages | 4s duration
+Mem: [MMMMMNNNNN8MMMMMMMMMMM8888NNNNNNNNNNNMOOiiiiiOOOOOOOOOOOOOOOiiiii..........iNNNNNNNN.NNNNNNNNNNNN...]
+  28.4s | <<< Proc N EXIT   |  5 pages | 4s duration
+Mem: [MMMMM.....8MMMMMMMMMMM8888NNNNNNNNNNNMOOiiiiiOOOOOOOOOOOOOOOiiiii..........iNNNNNNNN.NNNNNNNNNNNN...]
+  28.5s | <<< Proc 8 EXIT   |  5 pages | 4s duration
+Mem: [MMMMM......MMMMMMMMMMM....NNNNNNNNNNNMOOiiiiiOOOOOOOOOOOOOOOiiiii..........iNNNNNNNN.NNNNNNNNNNNN...]
+  29.1s | <<< Proc M EXIT   | 17 pages | 1s duration
+Mem: [..........................NNNNNNNNNNN.OOiiiiiOOOOOOOOOOOOOOOiiiii..........iNNNNNNNN.NNNNNNNNNNNN...]
+  29.7s | >>> Proc t ENTER  | 17 pages | 2s duration
+Mem: [ttttttttttttttttt.........NNNNNNNNNNN.OOiiiiiOOOOOOOOOOOOOOOiiiii..........iNNNNNNNN.NNNNNNNNNNNN...]
+  30.1s | >>> Proc Q ENTER  | 17 pages | 5s duration
+Mem: [tttttttttttttttttQQQQQQQQQNNNNNNNNNNNQOOiiiiiOOOOOOOOOOOOOOOiiiiiQQQQQQQ...iNNNNNNNN.NNNNNNNNNNNN...]
+  30.9s | <<< Proc i EXIT   | 11 pages | 5s duration
+Mem: [tttttttttttttttttQQQQQQQQQNNNNNNNNNNNQOO.....OOOOOOOOOOOOOOO.....QQQQQQQ....NNNNNNNN.NNNNNNNNNNNN...]
+  31.5s | >>> Proc L ENTER  | 11 pages | 2s duration
+Mem: [tttttttttttttttttQQQQQQQQQNNNNNNNNNNNQOOLLLLLOOOOOOOOOOOOOOOLLLLLQQQQQQQL...NNNNNNNN.NNNNNNNNNNNN...]
+  31.6s | <<< Proc t EXIT   | 17 pages | 2s duration
+Mem: [.................QQQQQQQQQNNNNNNNNNNNQOOLLLLLOOOOOOOOOOOOOOOLLLLLQQQQQQQL...NNNNNNNN.NNNNNNNNNNNN...]
+  31.7s | <<< Proc N EXIT   | 31 pages | 5s duration
+Mem: [.................QQQQQQQQQ...........QOOLLLLLOOOOOOOOOOOOOOOLLLLLQQQQQQQL...........................]
+  31.9s | >>> Proc I ENTER  | 11 pages | 4s duration
+Mem: [IIIIIIIIIII......QQQQQQQQQ...........QOOLLLLLOOOOOOOOOOOOOOOLLLLLQQQQQQQL...........................]
+  32.2s | >>> Proc S ENTER  |  5 pages | 5s duration
+Mem: [IIIIIIIIIIISSSSS.QQQQQQQQQ...........QOOLLLLLOOOOOOOOOOOOOOOLLLLLQQQQQQQL...........................]
+  32.2s | <<< Proc O EXIT   | 17 pages | 4s duration
+Mem: [IIIIIIIIIIISSSSS.QQQQQQQQQ...........Q..LLLLL...............LLLLLQQQQQQQL...........................]
+  32.6s | >>> Proc A ENTER  |  5 pages | 4s duration
+Mem: [IIIIIIIIIIISSSSSAQQQQQQQQQAAAA.......Q..LLLLL...............LLLLLQQQQQQQL...........................]
+  32.9s | >>> Proc T ENTER  | 31 pages | 4s duration
+Mem: [IIIIIIIIIIISSSSSAQQQQQQQQQAAAATTTTTTTQTTLLLLLTTTTTTTTTTTTTTTLLLLLQQQQQQQLTTTTTTT....................]
+  33.4s | <<< Proc L EXIT   | 11 pages | 2s duration
+Mem: [IIIIIIIIIIISSSSSAQQQQQQQQQAAAATTTTTTTQTT.....TTTTTTTTTTTTTTT.....QQQQQQQ.TTTTTTT....................]
+  33.5s | >>> Proc O ENTER  |  5 pages | 1s duration
+Mem: [IIIIIIIIIIISSSSSAQQQQQQQQQAAAATTTTTTTQTTOOOOOTTTTTTTTTTTTTTT.....QQQQQQQ.TTTTTTT....................]
+  34.0s | >>> Proc H ENTER  | 11 pages | 5s duration
+Mem: [IIIIIIIIIIISSSSSAQQQQQQQQQAAAATTTTTTTQTTOOOOOTTTTTTTTTTTTTTTHHHHHQQQQQQQHTTTTTTTHHHHH...............]
+  34.4s | <<< Proc O EXIT   |  5 pages | 1s duration
+Mem: [IIIIIIIIIIISSSSSAQQQQQQQQQAAAATTTTTTTQTT.....TTTTTTTTTTTTTTTHHHHHQQQQQQQHTTTTTTTHHHHH...............]
+  35.0s | >>> Proc V ENTER  |  5 pages | 5s duration
+Mem: [IIIIIIIIIIISSSSSAQQQQQQQQQAAAATTTTTTTQTTVVVVVTTTTTTTTTTTTTTTHHHHHQQQQQQQHTTTTTTTHHHHH...............]
+  35.0s | <<< Proc Q EXIT   | 17 pages | 5s duration
+Mem: [IIIIIIIIIIISSSSSA.........AAAATTTTTTT.TTVVVVVTTTTTTTTTTTTTTTHHHHH.......HTTTTTTTHHHHH...............]
+  35.7s | >>> Proc E ENTER  |  5 pages | 3s duration
+Mem: [IIIIIIIIIIISSSSSAEEEEE....AAAATTTTTTT.TTVVVVVTTTTTTTTTTTTTTTHHHHH.......HTTTTTTTHHHHH...............]
+  35.8s | <<< Proc I EXIT   | 11 pages | 4s duration
+Mem: [...........SSSSSAEEEEE....AAAATTTTTTT.TTVVVVVTTTTTTTTTTTTTTTHHHHH.......HTTTTTTTHHHHH...............]
+  36.3s | >>> Proc l ENTER  |  5 pages | 1s duration
+Mem: [lllll......SSSSSAEEEEE....AAAATTTTTTT.TTVVVVVTTTTTTTTTTTTTTTHHHHH.......HTTTTTTTHHHHH...............]
+  36.5s | <<< Proc A EXIT   |  5 pages | 4s duration
+Mem: [lllll......SSSSS.EEEEE........TTTTTTT.TTVVVVVTTTTTTTTTTTTTTTHHHHH.......HTTTTTTTHHHHH...............]
+  36.8s | <<< Proc T EXIT   | 31 pages | 4s duration
+Mem: [lllll......SSSSS.EEEEE..................VVVVV...............HHHHH.......H.......HHHHH...............]
+  37.1s | <<< Proc S EXIT   |  5 pages | 5s duration
+Mem: [lllll............EEEEE..................VVVVV...............HHHHH.......H.......HHHHH...............]
+  37.2s | <<< Proc l EXIT   |  5 pages | 1s duration
+Mem: [.................EEEEE..................VVVVV...............HHHHH.......H.......HHHHH...............]
+  37.4s | >>> Proc Y ENTER  | 31 pages | 1s duration
+Mem: [YYYYYYYYYYYYYYYYYEEEEEYYYYYYYYYYYYYY....VVVVV...............HHHHH.......H.......HHHHH...............]
+  37.5s | >>> Proc 9 ENTER  |  5 pages | 2s duration
+Mem: [YYYYYYYYYYYYYYYYYEEEEEYYYYYYYYYYYYYY9999VVVVV9..............HHHHH.......H.......HHHHH...............]
+  37.6s | >>> Proc H ENTER  |  5 pages | 1s duration
+Mem: [YYYYYYYYYYYYYYYYYEEEEEYYYYYYYYYYYYYY9999VVVVV9HHHHH.........HHHHH.......H.......HHHHH...............]
+  37.6s | >>> Proc V ENTER  | 17 pages | 5s duration
+Mem: [YYYYYYYYYYYYYYYYYEEEEEYYYYYYYYYYYYYY9999VVVVV9HHHHHVVVVVVVVVHHHHHVVVVVVVHV......HHHHH...............]
+  37.7s | >>> Proc O ENTER  | 17 pages | 1s duration
+Mem: [YYYYYYYYYYYYYYYYYEEEEEYYYYYYYYYYYYYY9999VVVVV9HHHHHVVVVVVVVVHHHHHVVVVVVVHVOOOOOOHHHHHOOOOOOOOOOO....]
+  38.3s | <<< Proc Y EXIT   | 31 pages | 1s duration
+Mem: [.................EEEEE..............9999VVVVV9HHHHHVVVVVVVVVHHHHHVVVVVVVHVOOOOOOHHHHHOOOOOOOOOOO....]
+  38.4s | >>> Proc R ENTER  |  5 pages | 5s duration
+Mem: [RRRRR............EEEEE..............9999VVVVV9HHHHHVVVVVVVVVHHHHHVVVVVVVHVOOOOOOHHHHHOOOOOOOOOOO....]
+  38.5s | <<< Proc H EXIT   |  5 pages | 1s duration
+Mem: [RRRRR............EEEEE..............9999VVVVV9.....VVVVVVVVVHHHHHVVVVVVVHVOOOOOOHHHHHOOOOOOOOOOO....]
+  38.6s | >>> Proc I ENTER  | 11 pages | 3s duration
+Mem: [RRRRRIIIIIIIIIII.EEEEE..............9999VVVVV9.....VVVVVVVVVHHHHHVVVVVVVHVOOOOOOHHHHHOOOOOOOOOOO....]
+  38.6s | <<< Proc O EXIT   | 17 pages | 1s duration
+Mem: [RRRRRIIIIIIIIIII.EEEEE..............9999VVVVV9.....VVVVVVVVVHHHHHVVVVVVVHV......HHHHH...............]
+  38.6s | <<< Proc E EXIT   |  5 pages | 3s duration
+Mem: [RRRRRIIIIIIIIIII....................9999VVVVV9.....VVVVVVVVVHHHHHVVVVVVVHV......HHHHH...............]
+  38.9s | <<< Proc H EXIT   | 11 pages | 5s duration
+Mem: [RRRRRIIIIIIIIIII....................9999VVVVV9.....VVVVVVVVV.....VVVVVVV.V..........................]
+  39.4s | >>> Proc k ENTER  | 17 pages | 3s duration
+Mem: [RRRRRIIIIIIIIIIIkkkkkkkkkkkkkkkkk...9999VVVVV9.....VVVVVVVVV.....VVVVVVV.V..........................]
+  39.4s | <<< Proc 9 EXIT   |  5 pages | 2s duration
+Mem: [RRRRRIIIIIIIIIIIkkkkkkkkkkkkkkkkk.......VVVVV......VVVVVVVVV.....VVVVVVV.V..........................]
+  39.6s | >>> Proc F ENTER  | 17 pages | 3s duration
+Mem: [RRRRRIIIIIIIIIIIkkkkkkkkkkkkkkkkkFFFFFFFVVVVVFFFFFFVVVVVVVVVFFFF.VVVVVVV.V..........................]
+  39.9s | <<< Proc V EXIT   |  5 pages | 5s duration
+Mem: [RRRRRIIIIIIIIIIIkkkkkkkkkkkkkkkkkFFFFFFF.....FFFFFFVVVVVVVVVFFFF.VVVVVVV.V..........................]
+  40.0s | >>> Proc B ENTER  | 17 pages | 3s duration
+Mem: [RRRRRIIIIIIIIIIIkkkkkkkkkkkkkkkkkFFFFFFFBBBBBFFFFFFVVVVVVVVVFFFFBVVVVVVVBVBBBBBBBBBB................]
+  40.3s | >>> Proc U ENTER  |  5 pages | 1s duration
+Mem: [RRRRRIIIIIIIIIIIkkkkkkkkkkkkkkkkkFFFFFFFBBBBBFFFFFFVVVVVVVVVFFFFBVVVVVVVBVBBBBBBBBBBUUUUU...........]
+  41.1s | >>> Proc Z ENTER  |  5 pages | 4s duration
+Mem: [RRRRRIIIIIIIIIIIkkkkkkkkkkkkkkkkkFFFFFFFBBBBBFFFFFFVVVVVVVVVFFFFBVVVVVVVBVBBBBBBBBBBUUUUUZZZZZ......]
+  41.2s | <<< Proc U EXIT   |  5 pages | 1s duration
+Mem: [RRRRRIIIIIIIIIIIkkkkkkkkkkkkkkkkkFFFFFFFBBBBBFFFFFFVVVVVVVVVFFFFBVVVVVVVBVBBBBBBBBBB.....ZZZZZ......]
+  41.5s | <<< Proc I EXIT   | 11 pages | 3s duration
+Mem: [RRRRR...........kkkkkkkkkkkkkkkkkFFFFFFFBBBBBFFFFFFVVVVVVVVVFFFFBVVVVVVVBVBBBBBBBBBB.....ZZZZZ......]
+  42.0s | >>> Proc S ENTER  |  5 pages | 4s duration
+Mem: [RRRRRSSSSS......kkkkkkkkkkkkkkkkkFFFFFFFBBBBBFFFFFFVVVVVVVVVFFFFBVVVVVVVBVBBBBBBBBBB.....ZZZZZ......]
+  42.3s | <<< Proc k EXIT   | 17 pages | 3s duration
+Mem: [RRRRRSSSSS.......................FFFFFFFBBBBBFFFFFFVVVVVVVVVFFFFBVVVVVVVBVBBBBBBBBBB.....ZZZZZ......]
+  42.5s | <<< Proc F EXIT   | 17 pages | 3s duration
+Mem: [RRRRRSSSSS..............................BBBBB......VVVVVVVVV....BVVVVVVVBVBBBBBBBBBB.....ZZZZZ......]
+  42.5s | <<< Proc V EXIT   | 17 pages | 5s duration
+Mem: [RRRRRSSSSS..............................BBBBB...................B.......B.BBBBBBBBBB.....ZZZZZ......]
+  42.9s | <<< Proc B EXIT   | 17 pages | 3s duration
+Mem: [RRRRRSSSSS...............................................................................ZZZZZ......]
+  43.3s | <<< Proc R EXIT   |  5 pages | 5s duration
+Mem: [.....SSSSS...............................................................................ZZZZZ......]
+  43.4s | >>> Proc J ENTER  | 31 pages | 3s duration
+Mem: [JJJJJSSSSSJJJJJJJJJJJJJJJJJJJJJJJJJJ.....................................................ZZZZZ......]
+  43.4s | >>> Proc D ENTER  |  5 pages | 5s duration
+Mem: [JJJJJSSSSSJJJJJJJJJJJJJJJJJJJJJJJJJJDDDDD................................................ZZZZZ......]
+  43.8s | >>> Proc R ENTER  |  5 pages | 4s duration
+Mem: [JJJJJSSSSSJJJJJJJJJJJJJJJJJJJJJJJJJJDDDDDRRRRR...........................................ZZZZZ......]
+  44.0s | >>> Proc G ENTER  | 17 pages | 3s duration
+Mem: [JJJJJSSSSSJJJJJJJJJJJJJJJJJJJJJJJJJJDDDDDRRRRRGGGGGGGGGGGGGGGGG..........................ZZZZZ......]
+  44.3s | >>> Proc O ENTER  |  5 pages | 4s duration
+Mem: [JJJJJSSSSSJJJJJJJJJJJJJJJJJJJJJJJJJJDDDDDRRRRRGGGGGGGGGGGGGGGGGOOOOO.....................ZZZZZ......]
+  44.4s | >>> Proc y ENTER  | 11 pages | 1s duration
+Mem: [JJJJJSSSSSJJJJJJJJJJJJJJJJJJJJJJJJJJDDDDDRRRRRGGGGGGGGGGGGGGGGGOOOOOyyyyyyyyyyy..........ZZZZZ......]
+  44.6s | >>> Proc h ENTER  |  5 pages | 3s duration
+Mem: [JJJJJSSSSSJJJJJJJJJJJJJJJJJJJJJJJJJJDDDDDRRRRRGGGGGGGGGGGGGGGGGOOOOOyyyyyyyyyyyhhhhh.....ZZZZZ......]
+  45.0s | >>> Proc J ENTER  |  5 pages | 5s duration
+Mem: [JJJJJSSSSSJJJJJJJJJJJJJJJJJJJJJJJJJJDDDDDRRRRRGGGGGGGGGGGGGGGGGOOOOOyyyyyyyyyyyhhhhhJJJJJZZZZZ......]
+  45.0s | <<< Proc Z EXIT   |  5 pages | 4s duration
+Mem: [JJJJJSSSSSJJJJJJJJJJJJJJJJJJJJJJJJJJDDDDDRRRRRGGGGGGGGGGGGGGGGGOOOOOyyyyyyyyyyyhhhhhJJJJJ...........]
+  45.3s | <<< Proc y EXIT   | 11 pages | 1s duration
+Mem: [JJJJJSSSSSJJJJJJJJJJJJJJJJJJJJJJJJJJDDDDDRRRRRGGGGGGGGGGGGGGGGGOOOOO...........hhhhhJJJJJ...........]
+  45.7s | >>> Proc u ENTER  |  5 pages | 3s duration
+Mem: [JJJJJSSSSSJJJJJJJJJJJJJJJJJJJJJJJJJJDDDDDRRRRRGGGGGGGGGGGGGGGGGOOOOOuuuuu......hhhhhJJJJJ...........]
+  45.9s | <<< Proc S EXIT   |  5 pages | 4s duration
+Mem: [JJJJJ.....JJJJJJJJJJJJJJJJJJJJJJJJJJDDDDDRRRRRGGGGGGGGGGGGGGGGGOOOOOuuuuu......hhhhhJJJJJ...........]
+  46.3s | <<< Proc J EXIT   | 31 pages | 3s duration
+Mem: [....................................DDDDDRRRRRGGGGGGGGGGGGGGGGGOOOOOuuuuu......hhhhhJJJJJ...........]
+  46.4s | >>> Proc O ENTER  | 17 pages | 5s duration
+Mem: [OOOOOOOOOOOOOOOOO...................DDDDDRRRRRGGGGGGGGGGGGGGGGGOOOOOuuuuu......hhhhhJJJJJ...........]
+  46.5s | >>> Proc C ENTER  | 17 pages | 2s duration
+Mem: [OOOOOOOOOOOOOOOOOCCCCCCCCCCCCCCCCC..DDDDDRRRRRGGGGGGGGGGGGGGGGGOOOOOuuuuu......hhhhhJJJJJ...........]
+  46.9s | >>> Proc R ENTER  | 17 pages | 2s duration
+Mem: [OOOOOOOOOOOOOOOOOCCCCCCCCCCCCCCCCCRRDDDDDRRRRRGGGGGGGGGGGGGGGGGOOOOOuuuuuRRRRRRhhhhhJJJJJRRRRRRRRR..]
+  46.9s | <<< Proc G EXIT   | 17 pages | 3s duration
+Mem: [OOOOOOOOOOOOOOOOOCCCCCCCCCCCCCCCCCRRDDDDDRRRRR.................OOOOOuuuuuRRRRRRhhhhhJJJJJRRRRRRRRR..]
+  47.0s | >>> Proc R ENTER  | 11 pages | 3s duration
+Mem: [OOOOOOOOOOOOOOOOOCCCCCCCCCCCCCCCCCRRDDDDDRRRRRRRRRRRRRRRR......OOOOOuuuuuRRRRRRhhhhhJJJJJRRRRRRRRR..]
+  47.5s | <<< Proc h EXIT   |  5 pages | 3s duration
+Mem: [OOOOOOOOOOOOOOOOOCCCCCCCCCCCCCCCCCRRDDDDDRRRRRRRRRRRRRRRR......OOOOOuuuuuRRRRRR.....JJJJJRRRRRRRRR..]
+  47.7s | <<< Proc R EXIT   |  5 pages | 4s duration
+Mem: [OOOOOOOOOOOOOOOOOCCCCCCCCCCCCCCCCCRRDDDDD.....RRRRRRRRRRR......OOOOOuuuuuRRRRRR.....JJJJJRRRRRRRRR..]
+  47.8s | >>> Proc F ENTER  |  5 pages | 4s duration
+Mem: [OOOOOOOOOOOOOOOOOCCCCCCCCCCCCCCCCCRRDDDDDFFFFFRRRRRRRRRRR......OOOOOuuuuuRRRRRR.....JJJJJRRRRRRRRR..]
+  48.2s | <<< Proc O EXIT   |  5 pages | 4s duration
+Mem: [OOOOOOOOOOOOOOOOOCCCCCCCCCCCCCCCCCRRDDDDDFFFFFRRRRRRRRRRR...........uuuuuRRRRRR.....JJJJJRRRRRRRRR..]
+  48.3s | <<< Proc D EXIT   |  5 pages | 5s duration
+Mem: [OOOOOOOOOOOOOOOOOCCCCCCCCCCCCCCCCCRR.....FFFFFRRRRRRRRRRR...........uuuuuRRRRRR.....JJJJJRRRRRRRRR..]
+  48.4s | <<< Proc C EXIT   | 17 pages | 2s duration
+Mem: [OOOOOOOOOOOOOOOOO.................RR.....FFFFFRRRRRRRRRRR...........uuuuuRRRRRR.....JJJJJRRRRRRRRR..]
+  48.6s | <<< Proc u EXIT   |  5 pages | 3s duration
+Mem: [OOOOOOOOOOOOOOOOO.................RR.....FFFFFRRRRRRRRRRR................RRRRRR.....JJJJJRRRRRRRRR..]
+  48.7s | >>> Proc K ENTER  | 31 pages | 4s duration
+Mem: [OOOOOOOOOOOOOOOOOKKKKKKKKKKKKKKKKKRRKKKKKFFFFFRRRRRRRRRRRKKKKKKKKK.......RRRRRR.....JJJJJRRRRRRRRR..]
+  48.8s | <<< Proc R EXIT   | 17 pages | 2s duration
+Mem: [OOOOOOOOOOOOOOOOOKKKKKKKKKKKKKKKKK..KKKKKFFFFFRRRRRRRRRRRKKKKKKKKK..................JJJJJ...........]
+  49.0s | >>> Proc W ENTER  | 17 pages | 4s duration
+Mem: [OOOOOOOOOOOOOOOOOKKKKKKKKKKKKKKKKKWWKKKKKFFFFFRRRRRRRRRRRKKKKKKKKKWWWWWWWWWWWWWWW...JJJJJ...........]
+  49.1s | >>> Proc N ENTER  | 11 pages | 3s duration
+Mem: [OOOOOOOOOOOOOOOOOKKKKKKKKKKKKKKKKKWWKKKKKFFFFFRRRRRRRRRRRKKKKKKKKKWWWWWWWWWWWWWWWNNNJJJJJNNNNNNNN...]
+  49.9s | <<< Proc R EXIT   | 11 pages | 3s duration
+Mem: [OOOOOOOOOOOOOOOOOKKKKKKKKKKKKKKKKKWWKKKKKFFFFF...........KKKKKKKKKWWWWWWWWWWWWWWWNNNJJJJJNNNNNNNN...]
+  49.9s | <<< Proc J EXIT   |  5 pages | 5s duration
+Mem: [OOOOOOOOOOOOOOOOOKKKKKKKKKKKKKKKKKWWKKKKKFFFFF...........KKKKKKKKKWWWWWWWWWWWWWWWNNN.....NNNNNNNN...]
+  50.0s | >>> Proc L ENTER  | 11 pages | 4s duration
+Mem: [OOOOOOOOOOOOOOOOOKKKKKKKKKKKKKKKKKWWKKKKKFFFFFLLLLLLLLLLLKKKKKKKKKWWWWWWWWWWWWWWWNNN.....NNNNNNNN...]
+  51.0s | >>> Proc T ENTER  |  5 pages | 3s duration
+Mem: [OOOOOOOOOOOOOOOOOKKKKKKKKKKKKKKKKKWWKKKKKFFFFFLLLLLLLLLLLKKKKKKKKKWWWWWWWWWWWWWWWNNNTTTTTNNNNNNNN...]
+  51.3s | <<< Proc O EXIT   | 17 pages | 5s duration
+Mem: [.................KKKKKKKKKKKKKKKKKWWKKKKKFFFFFLLLLLLLLLLLKKKKKKKKKWWWWWWWWWWWWWWWNNNTTTTTNNNNNNNN...]
+  51.4s | >>> Proc L ENTER  | 17 pages | 5s duration
+Mem: [LLLLLLLLLLLLLLLLLKKKKKKKKKKKKKKKKKWWKKKKKFFFFFLLLLLLLLLLLKKKKKKKKKWWWWWWWWWWWWWWWNNNTTTTTNNNNNNNN...]
+  51.7s | <<< Proc F EXIT   |  5 pages | 4s duration
+Mem: [LLLLLLLLLLLLLLLLLKKKKKKKKKKKKKKKKKWWKKKKK.....LLLLLLLLLLLKKKKKKKKKWWWWWWWWWWWWWWWNNNTTTTTNNNNNNNN...]
+  51.9s | >>> Proc X ENTER  |  5 pages | 4s duration
+Mem: [LLLLLLLLLLLLLLLLLKKKKKKKKKKKKKKKKKWWKKKKKXXXXXLLLLLLLLLLLKKKKKKKKKWWWWWWWWWWWWWWWNNNTTTTTNNNNNNNN...]
+  52.0s | <<< Proc N EXIT   | 11 pages | 3s duration
+Mem: [LLLLLLLLLLLLLLLLLKKKKKKKKKKKKKKKKKWWKKKKKXXXXXLLLLLLLLLLLKKKKKKKKKWWWWWWWWWWWWWWW...TTTTT...........]
+  52.1s | >>> Proc V ENTER  |  5 pages | 2s duration
+Mem: [LLLLLLLLLLLLLLLLLKKKKKKKKKKKKKKKKKWWKKKKKXXXXXLLLLLLLLLLLKKKKKKKKKWWWWWWWWWWWWWWWVVVTTTTTVV.........]
+  52.6s | <<< Proc K EXIT   | 31 pages | 4s duration
+Mem: [LLLLLLLLLLLLLLLLL.................WW.....XXXXXLLLLLLLLLLL.........WWWWWWWWWWWWWWWVVVTTTTTVV.........]
+  52.7s | >>> Proc Y ENTER  | 31 pages | 5s duration
+Mem: [LLLLLLLLLLLLLLLLLYYYYYYYYYYYYYYYYYWWYYYYYXXXXXLLLLLLLLLLLYYYYYYYYYWWWWWWWWWWWWWWWVVVTTTTTVV.........]
+  52.8s | >>> Proc S ENTER  |  5 pages | 3s duration
+Mem: [LLLLLLLLLLLLLLLLLYYYYYYYYYYYYYYYYYWWYYYYYXXXXXLLLLLLLLLLLYYYYYYYYYWWWWWWWWWWWWWWWVVVTTTTTVVSSSSS....]
+  52.9s | <<< Proc W EXIT   | 17 pages | 4s duration
+Mem: [LLLLLLLLLLLLLLLLLYYYYYYYYYYYYYYYYY..YYYYYXXXXXLLLLLLLLLLLYYYYYYYYY...............VVVTTTTTVVSSSSS....]
+  53.0s | >>> Proc X ENTER  | 17 pages | 1s duration
+Mem: [LLLLLLLLLLLLLLLLLYYYYYYYYYYYYYYYYYXXYYYYYXXXXXLLLLLLLLLLLYYYYYYYYYXXXXXXXXXXXXXXXVVVTTTTTVVSSSSS....]
+  53.9s | <<< Proc X EXIT   | 17 pages | 1s duration
+Mem: [LLLLLLLLLLLLLLLLLYYYYYYYYYYYYYYYYY..YYYYYXXXXXLLLLLLLLLLLYYYYYYYYY...............VVVTTTTTVVSSSSS....]
+  53.9s | <<< Proc L EXIT   | 11 pages | 4s duration
+Mem: [LLLLLLLLLLLLLLLLLYYYYYYYYYYYYYYYYY..YYYYYXXXXX...........YYYYYYYYY...............VVVTTTTTVVSSSSS....]
+  53.9s | <<< Proc T EXIT   |  5 pages | 3s duration
+Mem: [LLLLLLLLLLLLLLLLLYYYYYYYYYYYYYYYYY..YYYYYXXXXX...........YYYYYYYYY...............VVV.....VVSSSSS....]
+  54.0s | <<< Proc V EXIT   |  5 pages | 2s duration
+Mem: [LLLLLLLLLLLLLLLLLYYYYYYYYYYYYYYYYY..YYYYYXXXXX...........YYYYYYYYY.........................SSSSS....]
+  54.3s | >>> Proc M ENTER  | 11 pages | 3s duration
+Mem: [LLLLLLLLLLLLLLLLLYYYYYYYYYYYYYYYYYMMYYYYYXXXXXMMMMMMMMM..YYYYYYYYY.........................SSSSS....]
+  54.6s | >>> Proc T ENTER  | 17 pages | 5s duration
+Mem: [LLLLLLLLLLLLLLLLLYYYYYYYYYYYYYYYYYMMYYYYYXXXXXMMMMMMMMMTTYYYYYYYYYTTTTTTTTTTTTTTT..........SSSSS....]
+  54.7s | >>> Proc j ENTER  |  5 pages | 5s duration
+Mem: [LLLLLLLLLLLLLLLLLYYYYYYYYYYYYYYYYYMMYYYYYXXXXXMMMMMMMMMTTYYYYYYYYYTTTTTTTTTTTTTTTjjjjj.....SSSSS....]
+  55.6s | >>> Proc v ENTER  |  5 pages | 5s duration
+Mem: [LLLLLLLLLLLLLLLLLYYYYYYYYYYYYYYYYYMMYYYYYXXXXXMMMMMMMMMTTYYYYYYYYYTTTTTTTTTTTTTTTjjjjjvvvvvSSSSS....]
+  55.7s | <<< Proc S EXIT   |  5 pages | 3s duration
+Mem: [LLLLLLLLLLLLLLLLLYYYYYYYYYYYYYYYYYMMYYYYYXXXXXMMMMMMMMMTTYYYYYYYYYTTTTTTTTTTTTTTTjjjjjvvvvv.........]
+  55.8s | <<< Proc X EXIT   |  5 pages | 4s duration
+Mem: [LLLLLLLLLLLLLLLLLYYYYYYYYYYYYYYYYYMMYYYYY.....MMMMMMMMMTTYYYYYYYYYTTTTTTTTTTTTTTTjjjjjvvvvv.........]
+  55.9s | >>> Proc W ENTER  | 11 pages | 3s duration
+Mem: [LLLLLLLLLLLLLLLLLYYYYYYYYYYYYYYYYYMMYYYYYWWWWWMMMMMMMMMTTYYYYYYYYYTTTTTTTTTTTTTTTjjjjjvvvvvWWWWWW...]
+  56.3s | <<< Proc L EXIT   | 17 pages | 5s duration
+Mem: [.................YYYYYYYYYYYYYYYYYMMYYYYYWWWWWMMMMMMMMMTTYYYYYYYYYTTTTTTTTTTTTTTTjjjjjvvvvvWWWWWW...]
+  56.4s | >>> Proc q ENTER  | 11 pages | 4s duration
+Mem: [qqqqqqqqqqq......YYYYYYYYYYYYYYYYYMMYYYYYWWWWWMMMMMMMMMTTYYYYYYYYYTTTTTTTTTTTTTTTjjjjjvvvvvWWWWWW...]
+  56.4s | >>> Proc D ENTER  |  5 pages | 3s duration
+Mem: [qqqqqqqqqqqDDDDD.YYYYYYYYYYYYYYYYYMMYYYYYWWWWWMMMMMMMMMTTYYYYYYYYYTTTTTTTTTTTTTTTjjjjjvvvvvWWWWWW...]
+  57.2s | <<< Proc M EXIT   | 11 pages | 3s duration
+Mem: [qqqqqqqqqqqDDDDD.YYYYYYYYYYYYYYYYY..YYYYYWWWWW.........TTYYYYYYYYYTTTTTTTTTTTTTTTjjjjjvvvvvWWWWWW...]
+  57.6s | <<< Proc Y EXIT   | 31 pages | 5s duration
+Mem: [qqqqqqqqqqqDDDDD.........................WWWWW.........TT.........TTTTTTTTTTTTTTTjjjjjvvvvvWWWWWW...]
+  57.9s | >>> Proc W ENTER  | 11 pages | 2s duration
+Mem: [qqqqqqqqqqqDDDDDWWWWWWWWWWW..............WWWWW.........TT.........TTTTTTTTTTTTTTTjjjjjvvvvvWWWWWW...]
+  57.9s | >>> Proc D ENTER  | 17 pages | 4s duration
+Mem: [qqqqqqqqqqqDDDDDWWWWWWWWWWWDDDDDDDDDDDDDDWWWWWDDD......TT.........TTTTTTTTTTTTTTTjjjjjvvvvvWWWWWW...]
+  58.8s | <<< Proc W EXIT   | 11 pages | 3s duration
+Mem: [qqqqqqqqqqqDDDDDWWWWWWWWWWWDDDDDDDDDDDDDD.....DDD......TT.........TTTTTTTTTTTTTTTjjjjjvvvvv.........]
+  59.3s | >>> Proc X ENTER  |  5 pages | 5s duration
+Mem: [qqqqqqqqqqqDDDDDWWWWWWWWWWWDDDDDDDDDDDDDDXXXXXDDD......TT.........TTTTTTTTTTTTTTTjjjjjvvvvv.........]
+  59.3s | <<< Proc D EXIT   |  5 pages | 3s duration
+Mem: [qqqqqqqqqqq.....WWWWWWWWWWWDDDDDDDDDDDDDDXXXXXDDD......TT.........TTTTTTTTTTTTTTTjjjjjvvvvv.........]
+  59.4s | >>> Proc T ENTER  | 11 pages | 4s duration
+Mem: [qqqqqqqqqqqTTTTTWWWWWWWWWWWDDDDDDDDDDDDDDXXXXXDDDTTTTTTTT.........TTTTTTTTTTTTTTTjjjjjvvvvv.........]
+  59.5s | <<< Proc T EXIT   | 17 pages | 5s duration
+Mem: [qqqqqqqqqqqTTTTTWWWWWWWWWWWDDDDDDDDDDDDDDXXXXXDDDTTTTTT..........................jjjjjvvvvv.........]
+  59.6s | <<< Proc j EXIT   |  5 pages | 5s duration
+Mem: [qqqqqqqqqqqTTTTTWWWWWWWWWWWDDDDDDDDDDDDDDXXXXXDDDTTTTTT...............................vvvvv.........]
+  59.8s | <<< Proc W EXIT   | 11 pages | 2s duration
+Mem: [qqqqqqqqqqqTTTTT...........DDDDDDDDDDDDDDXXXXXDDDTTTTTT...............................vvvvv.........]
+  59.9s | >>> Proc H ENTER  |  5 pages | 5s duration
+Mem: [qqqqqqqqqqqTTTTTHHHHH......DDDDDDDDDDDDDDXXXXXDDDTTTTTT...............................vvvvv.........]
+----------------------------------------------------------------------
+Run 1 | Hits: 2765  | Misses: 780   | Hit%: 78.00% | Swapped-In: 114
+Run 2 | Hits: 2780  | Misses: 765   | Hit%: 78.42% | Swapped-In: 114
+Run 3 | Hits: 2771  | Misses: 774   | Hit%: 78.17% | Swapped-In: 114
+Run 4 | Hits: 2780  | Misses: 765   | Hit%: 78.42% | Swapped-In: 114
+Run 5 | Hits: 2777  | Misses: 768   | Hit%: 78.34% | Swapped-In: 114
+
+----------------------------------------------------------------------
+FIFO — Average over 5 runs
+----------------------------------------------------------------------
+Avg Hit Ratio:            78.27%
+Avg Miss Ratio:           21.73%
+Avg Processes Swapped:    114.0
+----------------------------------------------------------------------
+
+======================================================================
+  [LRU] — NOT YET IMPLEMENTED (stub)
+======================================================================
+
+======================================================================
+  [LFU] — NOT YET IMPLEMENTED (stub)
+======================================================================
+
+======================================================================
+  [MFU] — NOT YET IMPLEMENTED (stub)
+======================================================================
+
+======================================================================
+  [Random] — NOT YET IMPLEMENTED (stub)
+======================================================================
+
+======================================================================
+  SIMULATION COMPLETE
+======================================================================
+
