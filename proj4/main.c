@@ -280,10 +280,11 @@ static int fifo_replace(PageFrame f[], int total, Process *req, int vpage,
   return victim;
 }
 
-// ---- LRU: stub ----
+
+// ---- LRU: evict page with lowest use_count ----
 static int lru_replace(PageFrame f[], int total, Process *req, int vpage,
                        int tick) {
-  // TODO: Implement LRU — evict page with oldest last_used timestamp
+  // TODO: Implement LRU — evict page with highest use_count
   (void)f;
   (void)total;
   (void)req;
@@ -292,17 +293,37 @@ static int lru_replace(PageFrame f[], int total, Process *req, int vpage,
   return -1;
 }
 
+
 // ---- LFU: stub ----
+// ---- LFU: evict page with lowest use_count ----
 static int lfu_replace(PageFrame f[], int total, Process *req, int vpage,
                        int tick) {
-  // TODO: Implement LFU — evict page with lowest use_count
-  (void)f;
-  (void)total;
-  (void)req;
-  (void)vpage;
-  (void)tick;
-  return -1;
+  int victim = -1;
+  int min_use = 2147483647;   // large number (INT_MAX alternative)
+  int oldest_time = tick + 1; // for tie-breaking
+
+  for (int i = 0; i < total; i++) {
+    if (f[i].occupied && f[i].virt_page >= 0) {
+
+      // Choose frame with smallest use_count
+      if (f[i].use_count < min_use) {
+        min_use = f[i].use_count;
+        oldest_time = f[i].load_time;
+        victim = i;
+      }
+      // Tie-breaker: if same use_count, pick oldest loaded
+      else if (f[i].use_count == min_use) {
+        if (f[i].load_time < oldest_time) {
+          oldest_time = f[i].load_time;
+          victim = i;
+        }
+      }
+    }
+  }
+
+  return victim;
 }
+
 
 // ---- MFU: stub ----
 static int mfu_replace(PageFrame f[], int total, Process *req, int vpage,
@@ -317,16 +338,29 @@ static int mfu_replace(PageFrame f[], int total, Process *req, int vpage,
 }
 
 // ---- Random: stub ----
+// ---- Random: pick a random occupied page to evict ----
 static int random_replace(PageFrame f[], int total, Process *req, int vpage,
                           int tick) {
-  // TODO: Implement Random — pick a random occupied page to evict
-  (void)f;
-  (void)total;
-  (void)req;
-  (void)vpage;
-  (void)tick;
-  return -1;
+  int candidates[TOTAL_PAGES];
+  int count = 0;
+
+  // Collect all valid occupied frames
+  for (int i = 0; i < total; i++) {
+    if (f[i].occupied && f[i].virt_page >= 0) {
+      candidates[count++] = i;
+    }
+  }
+
+  // If no candidates found (should not normally happen)
+  if (count == 0)
+    return -1;
+
+  // Pick one randomly
+  int r = rand() % count;
+  return candidates[r];
 }
+
+
 
 static ReplaceFn get_replace_fn(Algorithm alg) {
   switch (alg) {
