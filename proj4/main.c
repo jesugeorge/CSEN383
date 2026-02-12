@@ -36,15 +36,16 @@ static char gen_name(int index) {
 // Memory Map
 // ===========================================================================
 
-static void print_memory_map(void) {
-  printf("Mem: [");
-  for (int i = 0; i < TOTAL_PAGES; i++) {
+// Returns a memory map string into the provided buffer
+static void get_memory_map(char *buf, int bufsize) {
+  int pos = 0;
+  for (int i = 0; i < TOTAL_PAGES && pos < bufsize - 1; i++) {
     if (frames[i].occupied && frames[i].owner != NULL)
-      printf("%c", frames[i].owner->name);
+      buf[pos++] = frames[i].owner->name;
     else
-      printf(".");
+      buf[pos++] = '.';
   }
-  printf("]\n");
+  buf[pos] = '\0';
 }
 
 // ===========================================================================
@@ -465,17 +466,16 @@ static int handle_page_ref(Process *p, int vpage, int tick, ReplaceFn replace,
   }
 
   // Print detailed record if requested
+  // Spec format: <timestamp, process Name, page-referenced, in-memory, evicted>
   if (print_detail) {
     double ts = (double)(tick * REF_INTERVAL_MS) / 1000.0;
     if (hit) {
-      printf("%6.1fs | Proc %-2c | Page %2d | HIT  |              --\n", ts,
-             p->name, vpage);
+      printf("<%5.1fs, %c, %2d, In-Memory, ->\n", ts, p->name, vpage);
     } else if (evicted_frame >= 0) {
-      printf("%6.1fs | Proc %-2c | Page %2d | MISS | Evict %c/pg%-2d\n", ts,
-             p->name, vpage, evict_owner, evict_vpage);
+      printf("<%5.1fs, %c, %2d, Page-Fault, Evict %c/page%d>\n", ts, p->name,
+             vpage, evict_owner, evict_vpage);
     } else {
-      printf("%6.1fs | Proc %-2c | Page %2d | MISS | Free frame used\n", ts,
-             p->name, vpage);
+      printf("<%5.1fs, %c, %2d, Page-Fault, Free-Frame>\n", ts, p->name, vpage);
     }
     (*ref_counter)++;
   }
@@ -534,12 +534,7 @@ static RunStats run_simulation(Algorithm alg, int run_number,
   build_job_queue(&jq);
 
   if (print_details) {
-    printf("\nRun %d (detailed trace — first %d page references)\n", run_number,
-           DETAILED_REFS);
-    printf("%s\n", DIVIDER);
-    printf("%6s | %-6s | %4s | %-4s | %-16s\n", "Time", "Proc", "Page", "Hit?",
-           "Eviction");
-    printf("%s\n", DIVIDER);
+    printf("\n100 Page References (detailed trace):\n");
   }
 
   // Main simulation loop: each tick is 100ms
@@ -583,9 +578,11 @@ static RunStats run_simulation(Algorithm alg, int run_number,
         stats.swapped_in++;
 
         if (print_details) {
-          printf("%6.1fs | >>> Proc %c ENTER  | %2d pages | %ds duration\n",
-                 current_sec, p->name, p->size, p->duration_ms / 1000);
-          print_memory_map();
+          // Spec: <timestamp, process name, Enter, Size, Duration, Memory-map>
+          char mmap[TOTAL_PAGES + 1];
+          get_memory_map(mmap, sizeof(mmap));
+          printf("<%5.1fs, %c, Enter, %d, %ds, %s>\n", current_sec, p->name,
+                 p->size, p->duration_ms / 1000, mmap);
         }
       } else {
         // Not enough free pages, wait
@@ -625,15 +622,14 @@ static RunStats run_simulation(Algorithm alg, int run_number,
         p->active = 0;
 
         if (print_details) {
-          printf("%6.1fs | <<< Proc %c EXIT   | %2d pages | %ds duration\n",
-                 current_sec, p->name, p->size, p->duration_ms / 1000);
+          // Spec: <timestamp, process name, Exit, Size, Duration, Memory-map>
+          char mmap[TOTAL_PAGES + 1];
+          get_memory_map(mmap, sizeof(mmap));
+          printf("<%5.1fs, %c, Exit, %d, %ds, %s>\n", current_sec, p->name,
+                 p->size, p->duration_ms / 1000, mmap);
         }
 
         free_pages(p);
-
-        if (print_details) {
-          print_memory_map();
-        }
 
         active_list_remove(i);
       }
@@ -675,34 +671,39 @@ int main(void) {
   for (int alg = 0; alg < ALG_COUNT; alg++) {
     if (is_stub((Algorithm)alg)) {
       printf("\n%s\n", HEADER);
-      printf("  [%s] — NOT YET IMPLEMENTED (stub)\n", ALG_NAMES[alg]);
+      printf("  [%s] -- NOT YET IMPLEMENTED\n", ALG_NAMES[alg]);
       printf("%s\n", HEADER);
       continue;
     }
 
     printf("\n%s\n", HEADER);
-    printf("  [%s] Page Replacement\n", ALG_NAMES[alg]);
+    printf("  %s Page Replacement\n", ALG_NAMES[alg]);
     printf("%s\n", HEADER);
+
+    // Part 1: Separate run for 100 page references (detailed trace)
+    run_simulation((Algorithm)alg, 0, 1);
+
+    // Part 2: 5 full 1-minute runs (statistics only)
+    printf("\n%s\n", DIVIDER);
+    printf("%d Runs x %d seconds (statistics):\n", NUM_RUNS,
+           SIM_DURATION_MS / 1000);
+    printf("%s\n", DIVIDER);
 
     int total_hits = 0;
     int total_misses = 0;
     int total_swapped = 0;
 
     for (int run = 1; run <= NUM_RUNS; run++) {
-      // Print detailed output only for the first run
-      int print_detail = (run == 1);
-      RunStats rs = run_simulation((Algorithm)alg, run, print_detail);
+      RunStats rs = run_simulation((Algorithm)alg, run, 0);
       total_hits += rs.hits;
       total_misses += rs.misses;
       total_swapped += rs.swapped_in;
 
-      if (!print_detail) {
-        int total_refs = rs.hits + rs.misses;
-        double hr = (total_refs > 0) ? (double)rs.hits / total_refs : 0.0;
-        printf("Run %d | Hits: %-5d | Misses: %-5d | Hit%%: %.2f%% | "
-               "Swapped-In: %d\n",
-               run, rs.hits, rs.misses, hr * 100.0, rs.swapped_in);
-      }
+      int total_refs = rs.hits + rs.misses;
+      double hr = (total_refs > 0) ? (double)rs.hits / total_refs : 0.0;
+      printf("Run %d | Hits: %-5d | Misses: %-5d | Hit%%: %.2f%% | Swapped-In: "
+             "%d\n",
+             run, rs.hits, rs.misses, hr * 100.0, rs.swapped_in);
     }
 
     // Averages
@@ -715,7 +716,7 @@ int main(void) {
     double avg_swapped = (double)total_swapped / NUM_RUNS;
 
     printf("\n%s\n", DIVIDER);
-    printf("%s — Average over %d runs\n", ALG_NAMES[alg], NUM_RUNS);
+    printf("%s -- Average over %d runs\n", ALG_NAMES[alg], NUM_RUNS);
     printf("%s\n", DIVIDER);
     printf("Avg Hit Ratio:         %8.2f%%\n", avg_hit_ratio * 100.0);
     printf("Avg Miss Ratio:        %8.2f%%\n", avg_miss_ratio * 100.0);
