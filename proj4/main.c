@@ -340,13 +340,27 @@ static int lfu_replace(PageFrame f[], int total, Process *req, int vpage,
 // ---- MFU: stub ----
 static int mfu_replace(PageFrame f[], int total, Process *req, int vpage,
                        int tick) {
-  // TODO: Implement MFU — evict page with highest use_count
-  (void)f;
-  (void)total;
-  (void)req;
-  (void)vpage;
-  (void)tick;
-  return -1;
+  int victim = -1;
+  int max_use = -1;
+  int oldest_time = tick + 1;
+
+  for (int i = 0; i < total; i++) {
+    if (f[i].occupied && f[i].virt_page >= 0) {
+      if (f[i].use_count > max_use) {
+        max_use = f[i].use_count;
+        oldest_time = f[i].load_time;
+        victim = i;
+      } else if (f[i].use_count == max_use) {
+        // tie-break: evict the one that has been in memory longer
+        if (f[i].load_time < oldest_time) {
+          oldest_time = f[i].load_time;
+          victim = i;
+        }
+      }
+    }
+  }
+
+  return victim;
 }
 
 // ---- Random: stub ----
