@@ -57,5 +57,10 @@ proj2/scheduler
 proj3/proj3
 proj4/proj4
 proj4/Project-4*.pdf
+proj5/*.pdf
+proj5/*.xls
+proj6/*.pdf
+proj6/proj6
+*/output.txt
 
-output.txt
+*.zip
