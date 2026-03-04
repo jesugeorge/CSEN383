@@ -76,7 +76,6 @@ void run_generator_child(int child_index, int write_fd) {
         write(write_fd, msg_buffer, len);
         msg_count++;
     }
-    // Clean up: not strictly necessary but good practice
     close(write_fd); 
 }
 
